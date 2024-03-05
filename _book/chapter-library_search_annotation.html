@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nontarget and suspect screening of organic compounds using HRMS - 10&nbsp; Spectral libraries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-data_post_processing.html" rel="next">
+<link href="./chapter-Molecular_networks.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-library_search_annotation.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spectral libraries</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Nontarget and suspect screening of organic compounds using HRMS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction and concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Sample_pretreatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>Sample pretreatment for nontarget and suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-MS_preprocess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>Pre-processing HRMS data</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Suspect_screening.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>Suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Mass_defect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Mass defect plots</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Retention_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><strong>Retention time index and prediction</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Molecular_networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>Molecular networks</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-library_search_annotation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spectral libraries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-data_post_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data post-processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Conversion_HRMS_RawData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conversion of raw data from HRMS vendor format to open format</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_GC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">MTM HRMS Library: GC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_LC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-GC_HRMS_MSDIAL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-LC_HRMS_MSe_MSDIAL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Ion_Mobility_HRMS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ion mobility HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-GCorbitrap_Handbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-Reproducible_research.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Reproducible research using Docker containers and similar tools</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_Dust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Example workflow: indoor dust</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example-GC-LRMS_nontarget.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>GC coupled with LRMS nontarget</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#matchms" id="toc-matchms" class="nav-link active" data-scroll-target="#matchms"><span class="header-section-number">10.1</span> MatchMS</a></li>
+  <li><a href="#in-silico-fragmentation" id="toc-in-silico-fragmentation" class="nav-link" data-scroll-target="#in-silico-fragmentation"><span class="header-section-number">10.2</span> IN SILICO FRAGMENTATION</a>
+  <ul class="collapse">
+  <li><a href="#metfrag" id="toc-metfrag" class="nav-link" data-scroll-target="#metfrag"><span class="header-section-number">10.2.1</span> Metfrag</a></li>
+  <li><a href="#sirius-csi-fingerid" id="toc-sirius-csi-fingerid" class="nav-link" data-scroll-target="#sirius-csi-fingerid"><span class="header-section-number">10.2.2</span> Sirius CSI FingerID</a></li>
+  <li><a href="#cfm-id" id="toc-cfm-id" class="nav-link" data-scroll-target="#cfm-id"><span class="header-section-number">10.2.3</span> CFM-ID</a></li>
+  </ul></li>
+  <li><a href="#neims" id="toc-neims" class="nav-link" data-scroll-target="#neims"><span class="header-section-number">10.3</span> NEIMS</a></li>
+  <li><a href="#deepei" id="toc-deepei" class="nav-link" data-scroll-target="#deepei"><span class="header-section-number">10.4</span> DeepEI</a></li>
+  <li><a href="#qcxms" id="toc-qcxms" class="nav-link" data-scroll-target="#qcxms"><span class="header-section-number">10.5</span> QCxMS</a></li>
+  <li><a href="#library-search" id="toc-library-search" class="nav-link" data-scroll-target="#library-search"><span class="header-section-number">10.6</span> LIBRARY SEARCH</a></li>
+  <li><a href="#reading-mgf-files-in-r" id="toc-reading-mgf-files-in-r" class="nav-link" data-scroll-target="#reading-mgf-files-in-r"><span class="header-section-number">10.7</span> Reading mgf files in R</a></li>
+  <li><a href="#lib2nist" id="toc-lib2nist" class="nav-link" data-scroll-target="#lib2nist"><span class="header-section-number">10.8</span> LIB2NIST</a></li>
+  <li><a href="#mspepsearch" id="toc-mspepsearch" class="nav-link" data-scroll-target="#mspepsearch"><span class="header-section-number">10.9</span> MSPepSearch</a></li>
+  <li><a href="#annotation" id="toc-annotation" class="nav-link" data-scroll-target="#annotation"><span class="header-section-number">10.10</span> Annotation</a>
+  <ul class="collapse">
+  <li><a href="#high-resolution-mass-filtering" id="toc-high-resolution-mass-filtering" class="nav-link" data-scroll-target="#high-resolution-mass-filtering"><span class="header-section-number">10.10.1</span> High resolution mass filtering</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="Library" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spectral libraries</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In environmental analysis, NIST MS library is widely used to match a spectrum to a list of standard spectra. However, a major drawback of the NIST MS Search is that now all chemicals are included and all spectral ions are at unit mass (for EI spectra library, also called mainlib)</p>
+<p>Below figure shows a relatively good spectral match for a standard if only nominal or even at 0.1 decimal m/z:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/Spectra_CFBP_MePDA.PNG" class="img-fluid figure-img" width="696"></p>
+<figcaption class="figure-caption">Spectral matching using MS-DIAL</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="files/forward_reverse_lib_search.png" class="img-fluid" width="1779"></p>
+</div>
+</div>
+<section id="matchms" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="matchms"><span class="header-section-number">10.1</span> MatchMS</h2>
+<p>https://matchms.readthedocs.io/en/latest/</p>
+</section>
+<section id="in-silico-fragmentation" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="in-silico-fragmentation"><span class="header-section-number">10.2</span> IN SILICO FRAGMENTATION</h2>
+<p>There are several openly available models that have recently been published to predict the fragmentation patterns of GC-EI MS.</p>
+<section id="metfrag" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="metfrag"><span class="header-section-number">10.2.1</span> Metfrag</h3>
+</section>
+<section id="sirius-csi-fingerid" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="sirius-csi-fingerid"><span class="header-section-number">10.2.2</span> Sirius CSI FingerID</h3>
+<p><br> - Need to convert msp to mgf format<br>
+- If generating mgf file, then it needs to be saved as UTF-8 (UTF-8 with BOM doesnt work with Sirius)<br>
+- For GC data:<br>
+BEGIN IONS<br>
+PEPMASS=<br>
+NAME=<br>
+MOLECULARFORMULA=<br>
+CHARGE=1<br>
+ADDUCT=[M]+<br>
+MSLEVEL=2<br>
+mz “tab” intensity<br>
+END IONS</p>
+<p>where the “tab” is tab key between the mz and intensity value pair</p>
+<p>when using MSLEVEL=2, then isotopes of precursor ion will not be matched. IF needed then</p>
+</section>
+<section id="cfm-id" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="cfm-id"><span class="header-section-number">10.2.3</span> CFM-ID</h3>
+<p>In silico fragmentation:<br>
+Help file: https://sourceforge.net/p/cfm-id/wiki/Home/</p>
+<p><em>Use instructions:</em></p>
+<ul>
+<li>If you are using EI-MS (GC-MS) data, please use the ei_ms_model provided.<br>
+</li>
+<li>Note that lpsolve55.dll must also be included in the same directory as the executables. This file can be found in the development version of LPSolve (e.g.&nbsp;lp_solve_5.5.2.0_dev_win32.zip), which can be downloaded from https://sourceforge.net/projects/lpsolve/files/lpsolve/5.5.2.5/lp_solve_5.5.2.5_dev_win32.zip/download.</li>
+</ul>
+<p>Cfm-predict</p>
+<p>COMMAND:<br>
+<code>cfm-predict.exe &lt;smiles_or_inchi_or_file&gt; &lt;prob_thresh&gt; &lt;param_file&gt; &lt;config_file&gt; &lt;annotate_fragments&gt; &lt;output_file_or_dir&gt; &lt;apply_postproc&gt; &lt;suppress_exceptions&gt;</code></p>
+<p><br></p>
+<p>EXAMPLE (naphthalene):<br>
+<code>cfm-predict.exe InChI=1S/C10H8/c1-2-6-10-8-4-3-7-9(10)5-1/h1-8H 0.001 D:/Program/cfm-id-2.4_win32/ei_nn_iso_new/param_output.log D:/Program/cfm-id-2.4_win32/ei_nn_iso_new/param_config.txt 0 D:/Program/cfm-id-2.4_win32/test/output.msp</code></p>
+<p><br></p>
+<p>EXAMPLE (.txt file as input):<br>
+<code>cfm-predict.exe D:/Program/cfm-id-2.4_win32/test/input.txt 0.001 D:/Program/cfm-id-2.4_win32/ei_nn_iso_new/param_output.log D:/Program/cfm-id-2.4_win32/ei_nn_iso_new/param_config.txt 0 D:/Program/cfm-id-2.4_win32/test/output.msp</code></p>
+<p><br><br><br></p>
+</section>
+</section>
+<section id="neims" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="neims"><span class="header-section-number">10.3</span> NEIMS</h2>
+<p>Help files: https://github.com/brain-research/deep-molecular-massspec</p>
+<p><br><br><br></p>
+</section>
+<section id="deepei" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="deepei"><span class="header-section-number">10.4</span> DeepEI</h2>
+<p>Help files: https://github.com/hcji/DeepEI<br>
+https://github.com/hcji/DeepEI/blob/master/Usage.ipynb</p>
+<p><br><br><br></p>
+</section>
+<section id="qcxms" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="qcxms"><span class="header-section-number">10.5</span> QCxMS</h2>
+<p>This program only runs on LINUX SERVER.</p>
+<ul>
+<li>Check QCxMS <a href="https://xtb-docs.readthedocs.io/en/latest/qcxms_doc/qcxms_setup.html">online manual</a> for details</li>
+<li>Check PlotMS <a href="https://xtb-docs.readthedocs.io/en/latest/qcxms_doc/qcxms_plot.html">online manual</a></li>
+</ul>
+<p>PREPARATION - Download the latest version of QCxMS at: https://github.com/qcxms/QCxMS/releases/<br>
+- Download the lates PlotMS version at: https://github.com/qcxms/PlotMS/releases/ and copy to the same folder as QCxMS<br>
+- Copy the <code>.XTBPARAM</code> folder and the <code>.mass_raw.agr</code> files to <code>/home/ORUNET.ORU.SE/twg/</code></p>
+<ol type="1">
+<li>Prepare a file with the <em>equilibrium structure</em> of your desired molecule. Important: This file has to be named <code>coord</code> (without file extension) and should have the TURBOMOLE coord format (tmol).</li>
+</ol>
+<p>1.1. <strong>Simple</strong>: download the 3D conformer structure in pubchem in sdf format and then convert using openbabel -&gt; tmol. Remove the file extension .tmol so the file name is only <em>coord</em> without any extension</p>
+<p>1.2. <strong>Optimized 3D conformer according to steps by</strong> <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00470-3">Wang et al</a>:<br>
+- Download the 3D conformer in Pubchem as sdf. - Import into Avogadro (https://avogadro.cc/). If 3d-struture is not available, then use “build”-&gt; “insert SMILES”. This will take longer time to optimize.<br>
+- Use the auto-optimize tool (https://avogadro.cc/docs/tools/auto-optimize-tool/); Force field (MMFF94), Steps per update (10), Steepest Descent. When dE=0 then it is optimized and you can save as a <code>.mol</code> file.<br>
+- Use Openbabel to convert <code>.mol</code> to <code>.tmol</code> file. Rename as <code>coord</code> without the extension.</p>
+<ol start="2" type="1">
+<li>Prepare an input file called “<em>qceims.in</em>”. For the input options, see the online manual or the qceims.in file in the examples folder. <em>If no such file is prepared, default options are: run GFN1-xTB with 25 times the number of atoms in the molecule trajectories (ntraj)</em>.</li>
+</ol>
+<p>TO RUN QCEIMS</p>
+<p>Open bash</p>
+<ol type="1">
+<li>Enable overwriting files in your Linux:</li>
+</ol>
+<pre><code>set +o noclobber</code></pre>
+<ol start="2" type="1">
+<li>Place the executables into your $HOME/bin directory or path. Easiest is to enable the QCxMS executables in the path as seen below (replace the names if the QCxMS executables are in another folder):</li>
+</ol>
+<p>Check: https://linuxize.com/post/how-to-add-directory-to-path-in-linux/</p>
+<pre><code>echo $PATH
+
+export PATH=/home/ORUNET.ORU.SE/twg/QCxMS/:/home/ORUNET.ORU.SE/twg/bin:/home/ORUNET.ORU.SE/twg/.local/bin:/bin:/usr/bin:/opt/thinlinc/bin:/usr/local/bin:/usr/bin/X11:/sbin:/usr/sbin:/usr/local/sbin:/snap/bin:/opt/thinlinc/bin:/opt/SPAdes/SPAdes-3.13.0-Linux/bin:/opt/mauve/mauve_snapshot_2015-02-13:/opt/parsnp/Parsnp-Linux64-v1.2:/opt/prokka/prokka-master/bin:/opt/artemis/artemis</code></pre>
+<ol start="3" type="1">
+<li>go to your folder, e.g:</li>
+</ol>
+<pre><code>cd QCxMS/example/ethanol</code></pre>
+<p>Run:</p>
+<pre><code>qcxms</code></pre>
+<p>Run <code>qcxms</code> again and check the ouput if all is ok.</p>
+<ol start="5" type="1">
+<li>Executing production runs. If you want to run QCxMS locally, use the pqcxms script with -j number of parallel jobs and -t number of OMP threads:</li>
+</ol>
+<pre><code>pqcxms -j &lt;integer&gt; -t &lt;integer&gt; &amp;
+
+e.g: pqcxms -j 6 -t 4  &amp;</code></pre>
+<p>Make sure you add the <code>&amp;</code>at the end so you can return to the prompt by hitting <code>Enter</code>.</p>
+<p>You can check how any CPUs and threads are used by opening a new console and type <code>top</code> and then press <code>1</code> followed by <code>t</code> for visual bar chart.</p>
+<p>Check the status of your QCxMS run by changing to your working directory (first press Enter to get back the prompt) and typing</p>
+<pre><code>getres</code></pre>
+<p>, which will provide an output of the form:<br>
+<em>XXX runs done and written to tmpqceims.res/out</em><br>
+which gathers the runs already finished (creates tmpqceims.res and tmpqceims.out). The final results are on qceims.out and qceims.res</p>
+<ol start="6" type="1">
+<li><p><strong>SKIP: this doesnt work anymore with the new QCxMS version 6</strong>. (Download an exp. EI-MS from the NIST if available and copy it to the working dir as exp.dat; take the JCAMP-DX format from their web page).</p></li>
+<li><p>get spectrum by</p></li>
+</ol>
+<pre><code>plotms</code></pre>
+<p><strong>SKIP</strong>: and plot it with <code>xmgrace mass.agr</code>. the file “.mass.agr” should be in your home dir. plotms reads by default &lt;qceims.res&gt; or by <code>plotms -f &lt;name_of_res_file&gt;</code> any other res file. Check the consistency of the total charge.</p>
+<ol start="8" type="1">
+<li>Clean the csv file to remove low abundance ions and then copy the m/z and rel abundance to an msp file. Run <code>MS-LIMA</code> to compare the spectra.</li>
+</ol>
+<p><strong>ADDITIONAL_OPTIMIZATION</strong>: if the ratio of fragment to M+ signals is too large decrease the IEE by increasing the parameter ieeatm (default is 0.6 eV/atom) by inserting</p>
+<pre><code>ieeatm  &lt;value&gt;</code></pre>
+<p>in the qceims.in file and do the parallel run again (requires an additional qcxms pre-run).</p>
+<ol start="9" type="1">
+<li>if the IEE is ok, increase ntraj to get better statistics and re-run (note: qcxms.res is appended so delete it at this point).</li>
+</ol>
+<p>VERY IMPORTANT: EVERY CHANGE IN THE INPUT REQUIRES A RUN OF QCEIMS IN THE WORKING DIR BEFORE THE PARALLEL SCRIPT IS STARTED IN ORDER TO BE IN EFFECT!</p>
+<ol start="10" type="1">
+<li><p>trajectories are in TMPQCEIMS/TMP.<run_number> they are numbered by the run and the ion tracking number. (something like gmolden TMPQCEIMS/TMP.$1/trj.$1.$2 gives trajectory $1, track $2)</run_number></p></li>
+<li><p>for more QCEIMS code options (model parameters) see manual</p></li>
+</ol>
+<p>useful options for qceims:</p>
+<p>-c : check IEE but do nothing (requires M trajectory) -p : normal production (fragmentation) mode. Possible in any existing TMPQCEIMS/TMP.$1 directory. -eonly : use the requested QC (as specified in qceims.in) and do a single-point energy -e0 : same as above, charge = 0 -e1 : same as above, charge = 1 -qcp <string> : string = path to the QC code /usr/local/bin is default)</string></p>
+<p>other important options in &lt;qceims.in&gt;:</p>
+<p>ip-<method> ntraj <int> ieeatm <real> iseed <int> (random number initialization to start different runs)</int></real></int></method></p>
+<p><strong>Vizualize trajectories</strong></p>
+<p>Export VMDMovie folder to Path, go first to the folder with VMDMovie then enter:</p>
+<pre><code>export PATH=$PATH:$(pwd)</code></pre>
+<p>Go to the working directory and enter:</p>
+<pre><code>msmovie X Y</code></pre>
+<p>to load the trajectory TMPQCEIMS/TMP.X/trj.X.Y. For instance, <code>msmovie 1 1</code> loads the first trajectory of the first folder. Some adjustments according to personal preferences for movie-making may have to be made in these scripts.</p>
+<p><strong>In silico photodegradation product generation</strong><br>
+Use the US EPA CTS: Chemical Transformation Simulator to predict photodegradation products by the <a href="https://qed.epacdx.net/cts/gentrans/">Generate Transformation Products Module</a>.<br>
+- Enter the lookup structure.<br>
+- Select: User selected -&gt; Direct Photolysis.<br>
+- Choose number of generations of transformation products.</p>
+</section>
+<section id="library-search" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="library-search"><span class="header-section-number">10.6</span> LIBRARY SEARCH</h2>
+<p>xx</p>
+</section>
+<section id="reading-mgf-files-in-r" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="reading-mgf-files-in-r"><span class="header-section-number">10.7</span> Reading mgf files in R</h2>
+</section>
+<section id="lib2nist" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="lib2nist"><span class="header-section-number">10.8</span> LIB2NIST</h2>
+<p>Use LIB2NIST to convert combined msp file to NIST library. Convert your library list into NIST library format using LIB2NIST command line (in order to preserve the accurate mass since the GUI tool only convert to nominal mass) <strong>NOTE TO SELF: CHECK IF THIS IS TRUE</strong>. See command line help file for arguments.</p>
+<p><strong>NOTE TO SELF</strong>: NEED TO CHECK IF IT IS POSSIBLE TO INCLUDE Retention index. Check: https://www.nist.gov/system/files/documents/srd/NIST1aVer22Man.pdf (Section Import and Export of Retention indices with a spectrum)</p>
+<p>Convert your library list into NIST library format using LIB2NIST command line (in order to preserve the accurate mass). See command line help file for arguments.<br>
+IN WINDOWS: open ‘cmd’, go to the folder where LIB2NIST is and type:</p>
+<p>COMMAND:<br>
+<code>lib2nist.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N &lt;path to msp file&gt; &lt;output path&gt; =&lt;new name of library&gt;</code></p>
+<p>EXAMPLES:<br>
+<code>lib2nist64.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N D:\Projects\Suspect_lists\Spectral_databases\RECETOX_GC-EI_MS_20201028.msp D:\Program\NIST14\ =RECETOX_GC-EI_MS_20201028</code></p>
+<p>EXAMPLES:<br>
+<code>lib2nist64.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N D:\Projects\Suspect_lists\Spectral_databases\2021-05-28_MTM_HRMS_RECETOX_THERMO.msp D:\Program\NIST14\ =MTM_HRMS_RECETOX_THERMO_20210528</code></p>
+</section>
+<section id="mspepsearch" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="mspepsearch"><span class="header-section-number">10.9</span> MSPepSearch</h2>
+<p>Use MSPepSearch to query NIST msp output against NIST library and own library</p>
+<p>EXAMPLES:<br>
+<code>MSPepSearch64.exe Gusviqh /ZI 0.1 /ZIPPM 20 /MPPM 30 /MzLimits 50 -1 /MinMF 10 /OnlyFound /HITS 5 /LIB D:\Raw_data\Dust_Florian\GC\test\Mylib /INP D:\Raw_data\Dust_Florian\GC\test\input.msp /OUTMGF D:\Raw_data\Dust_Florian\GC\test\test.mgf /OUTTAB D:\Raw_data\Dust_Florian\GC\test\test.tsv /OutMW</code></p>
+<p><code>MSPepSearch64.exe Gusviqh /ZI 0.1 /ZIPPM 20 /MPPM 30 /MzLimits 50 -1 /MinMF 100 /OnlyFound /HITS 5 /LIB D:\PROGRAM\NIST14\MTM_HRMS_RECETOX_THERMO_20220518 /INP D:\Projects\Mexico_Air\NIST_Mexico.msp /OUTMGF D:\Projects\Mexico_Air\test\test.mgf /OUTTAB D:\Projects\Mexico_Air\test\test.tsv</code></p>
+<p><code>MSPepSearch64.exe Gusviqh /ZI 0.01 /ZIPPM 10 /MPPM 10 /MzLimits 50 -1 /MinMF 500 /OnlyFound /HITS 5 /LIB D:\PROGRAM\NIST14\MTM_HRMS /INP D:\Projects\Mexico_Air\NIST_Mexico.msp /OUTMGF D:\Projects\Mexico_Air\test\test.mgf /OUTTAB D:\Projects\Mexico_Air\test\test.tsv</code></p>
+<p><code>MSPepSearch64.exe Gusviqh /ZI 0.01 /ZIPPM 10 /MPPM 10 /MzLimits 50 -1 /MinMF 500 /OnlyFound /HITS 10 /LIB D:\Program\NIST14\MTM_HRMS_RECETOX_THERMO_20220518 /INP D:\Raw_data\Dust_Florian\GC\Raw_data\mzML\Spectrum_0_202111221149_NIST.msp /OutChemForm /OUTMGF D:\TEST\MSPepsearch\test.mgf /OUTTAB D:\TEST\MSPepsearch\test.tsv</code></p>
+<p>More info on commands on: https://pubs.acs.org/doi/suppl/10.1021/acs.analchem.9b03415/suppl_file/ac9b03415_si_001.pdf</p>
+</section>
+<section id="annotation" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="annotation"><span class="header-section-number">10.10</span> Annotation</h2>
+<section id="high-resolution-mass-filtering" class="level3" data-number="10.10.1">
+<h3 data-number="10.10.1" class="anchored" data-anchor-id="high-resolution-mass-filtering"><span class="header-section-number">10.10.1</span> High resolution mass filtering</h3>
+<section id="mfassignr" class="level4" data-number="10.10.1.1">
+<h4 data-number="10.10.1.1" class="anchored" data-anchor-id="mfassignr"><span class="header-section-number">10.10.1.1</span> MFAssignR</h4>
+</section>
+<section id="httpsgithub.comrecetoxmsmetaenhancer" class="level4" data-number="10.10.1.2">
+<h4 data-number="10.10.1.2" class="anchored" data-anchor-id="httpsgithub.comrecetoxmsmetaenhancer"><span class="header-section-number">10.10.1.2</span> https://github.com/RECETOX/MSMetaEnhancer</h4>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter-Molecular_networks.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>Molecular networks</strong></span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-data_post_processing.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data post-processing</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

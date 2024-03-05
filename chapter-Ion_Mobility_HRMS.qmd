@@ -1,0 +1,21 @@
+---
+Title: Ion Mobility HRMS
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# Ion mobility HRMS {#IM}
+
+## Ion mobility introduction
+
+## Recommendations for reporting ion mobility Mass Spectrometry measurements
+
+Use recommendations from the review article: https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/mas.21585
+
+## CCS databases
+
+-   Baker lab: https://brcwebportal.cos.ncsu.edu/baker/
+
+-   McLean lab: https://lab.vanderbilt.edu/mclean-group/collision-cross-section-database/

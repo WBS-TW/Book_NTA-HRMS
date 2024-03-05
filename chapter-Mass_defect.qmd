@@ -1,0 +1,21 @@
+---
+Title: Mass defect
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# **Mass defect plots** {#MassDefect}
+
+This is a chapter about using mass defect plots to help with nontarget data
+
+<br><br>
+
+## MDPlotR
+
+xx <br><br>
+
+## findhalo
+
+xx <br><br>

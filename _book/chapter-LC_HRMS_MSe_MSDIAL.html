@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nontarget and suspect screening of organic compounds using HRMS - 16&nbsp; LC-HRMS MSe raw data preprocessing with MS-DIAL</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-Ion_Mobility_HRMS.html" rel="next">
+<link href="./chapter-GC_HRMS_MSDIAL.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-LC_HRMS_MSe_MSDIAL.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Nontarget and suspect screening of organic compounds using HRMS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction and concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Sample_pretreatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>Sample pretreatment for nontarget and suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-MS_preprocess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>Pre-processing HRMS data</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Suspect_screening.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>Suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Mass_defect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Mass defect plots</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Retention_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><strong>Retention time index and prediction</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Molecular_networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>Molecular networks</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-library_search_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spectral libraries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-data_post_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data post-processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Conversion_HRMS_RawData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conversion of raw data from HRMS vendor format to open format</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_GC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">MTM HRMS Library: GC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_LC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-GC_HRMS_MSDIAL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-LC_HRMS_MSe_MSDIAL.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Ion_Mobility_HRMS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ion mobility HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-GCorbitrap_Handbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-Reproducible_research.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Reproducible research using Docker containers and similar tools</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_Dust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Example workflow: indoor dust</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example-GC-LRMS_nontarget.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>GC coupled with LRMS nontarget</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#some-recommended-values-for-g2-xs-qtof" id="toc-some-recommended-values-for-g2-xs-qtof" class="nav-link active" data-scroll-target="#some-recommended-values-for-g2-xs-qtof"><span class="header-section-number">16.1</span> Some recommended values for G2 XS qtof:</a></li>
+  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">16.2</span> Post processing</a></li>
+  <li><a href="#further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" id="toc-further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" class="nav-link" data-scroll-target="#further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial"><span class="header-section-number">16.3</span> Further explanation for some terminologies apart from the tutorial (https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="LCHRMSMSe" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This tutorial will guide you through the different steps to process raw data from <strong>LC MSe HRMS</strong> using MS-DIAL. You should also check the online tutorial provided by the developers: https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial</p>
+<p>You first need to convert the .raw files from GC orbitrap HRMS to the open .mzml format using MSConvert according to @ref(MSConvertGC).</p>
+<section id="some-recommended-values-for-g2-xs-qtof" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="some-recommended-values-for-g2-xs-qtof"><span class="header-section-number">16.1</span> Some recommended values for G2 XS qtof:</h2>
+<p><em>MS1 tolerance</em>: 0.01<br>
+<em>MS2 tolerance</em>: 0.01<br>
+<em>Maximum charge number</em>: 2<br>
+<em>Consider Cl Br</em>: Yes<br>
+<em>Minimum peak height</em>: 10000<br>
+<em>Mass slice width</em>: 0.05<br>
+<em>Smoothing method</em>: Linear weighted moving average<br>
+<em>Smooth level</em>: 3<br>
+<em>Minimum peak width</em>: 5<br>
+<em>MSMS ab cutoff</em>: should be &gt;500 Da to get rid of noisy background peaks to the spectrum<br>
+<em>Exlude after precursor</em>: Yes<br>
+<em>Keep isotopic ions until</em>: 8 (but varies if Cl and Br will be used for mass defect plots? Maybe higher value (10?) for negative mode?? NEED TO CHECK!!)<br>
+<em>Keep isotopic ions w/o MS2Dec</em>: Yes</p>
+<p><strong>CorrDec settings</strong><br>
+<em>MS2 tolerance</em>: 0.01 Da<br>
+<em>Min MS2 peak intensity</em>:100 amplitude (this should be tested against individual features to optimize)<br>
+<em>Min number of detected samples</em>: 3 (depends on the total number of samples, should have many samples to be efficient)<br>
+<em>Excl highly correlated spots</em>: 1 (to also include precursor ion in the MS2)<br>
+<em>Min. corr coefficient (MS2)</em>: 0.85<br>
+<em>Margin 1</em>: unsure<br>
+<em>Margin 2</em>: unsure<br>
+<em>Min detected rate</em>: 0.5 (default but unsure what it means, percent or fraction?)<br>
+<em>Min MS2 rel intensity</em>: 2 % <em>Remove peaks larger than precursor</em>: Yes</p>
+<p>How to export CorrDec spectra? http://www.metabolomics-forum.com/index.php?topic=1473.0</p>
+</section>
+<section id="post-processing" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">16.2</span> Post processing</h2>
+</section>
+<section id="further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial"><span class="header-section-number">16.3</span> Further explanation for some terminologies apart from the tutorial (https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial)</h2>
+<p><em>Gap fill</em>: The peak less than “minimum abundance” parameter of peak detection tab will be not detected even though there is a peak, and it can be gap-filled for the alignment process if the peak having the same RT and m/z is detected in other samples.</p>
+<p>From http://www.metabolomics-forum.com/index.php?topic=1469.0:</p>
+<p>In the alignment process, this program will make a master peak list (in a worst case) like:</p>
+<ol type="A">
+<li>RT: 1.05 min, m/z: 100.01<br>
+</li>
+<li>RT: 1.1 min, m/z: 100.015<br>
+</li>
+<li>RT: 1.2 min, m/z: 100.03.</li>
+</ol>
+<p>Then, a peak having e.g.&nbsp;RT: 1.1 min and m/z: 100.02 in a file e.g.&nbsp;(Q) will be aligned to (B) of the master list. After that, this program will recognize that the file (Q) does not have the certain peaks for (A) and (C), and then the program will perform the gap filling method to fill the values. However, for example, when users use an RT tolerance as 0.1 min and an m/z tolerance as 0.01 Da for the alignment tolerance, newly created peak for a master list’s (A) in the file (Q) should be nearly equal to what the file (Q) has for the master peak list’s (B) because the extracted ion chromatogram for the gap fill process for peak (A) should be drawn by the tolerances of RT=1.05 min +/ 0.1 min, m/z=100.01+/- 0.01. Because of these, MS-DIAL is supposed to export very similar peak height/area values for the master peak list’s (A) and (B) in the result of file (Q). Here, (B) is recognized as “detected” and (A) is recognized as “gap-filled” although the origin of peak is the same between them. You can know the peak origins (detected or gap-filled) in the ‘peak id’ matrix from the alignment result export option where the “-1” value is described when the peak value is inserted by the gap-filled process.</p>
+<p><em>Mass slice width</em>: depending on the processing settings, sometimes we observe the same compound splitting into 2-3 different features, and we think the mass slice width (in Peak detection) may be one of the parameters driving this effect (in addition to the alignment tolerance across samples).</p>
+<p>How can we properly to choose a slice width that fits our data, i.e.&nbsp;neither a too wide nor too narrow? For high-res Orbitrap a width of 0.05 Da is suggested. As an example, attached is an internal standard run on our LC Orbitrap (acquired at 140.000 resolution, profile).</p>
+<p>From my understanding of Tsugawa et al 2015 (Peak spotting) https://www.ncbi.nlm.nih.gov/pubmed/25938372 and the math presentation describing the MS-DIAL peak detection algorithm (default 0.1 Da), it seems MS-DIAL would correct the merging of BPCs across different m/z widths, somewhat similarly to XCMS? Below, from Smith et al 2006 (Peak detection) https://pubs.acs.org/doi/10.1021/ac051437y</p>
+<p>“An important detail is the relationship between spectral peak width and slice width.</p>
+<ul>
+<li><p>if the peak width is larger than slice width: the signal from a single peak may bleed across multiple slices. Low-res MS produce peak widths greater than the XMCS default 0.1 m/z slice. The MEND peak detection algorithm uses a scoring function to assess whether a chromatographic peak is also at the maximum of a spectral peak, preemptively removing such bleed. Instead of eliminating spurious extra peaks during detection, our algorithm uses a post-processing step that descends through the peak list by intensity, eliminating any peaks in the vicinity (0.7 m/z) of higher intensity peaks.</p></li>
+<li><p>if the peak width is smaller than the slice width: high-res TOF or Fourier transform MS often exhibit such behavior. In that case, depending on the scan-to-scan precision of the instrument, the signal from an analyte may oscillate between adjacent slices over chromatographic time, making an otherwise smooth peak shape appear jagged. Based on operator knowledge of the mass spectrometer characteristics, we optionally combine the maximum signal intensity from adjacent slices into overlapping EIBPCs (i.e., 100.0/100.1, 100.1/100.2, etc.), That initial step produces both smooth and jagged chromatographic profiles, which are then used for filtration and peak detection. During the vicinity elimination postprocessing step, peaks detected from smooth profiles (integrated from the full signal) are selected over peaks detected from jagged profiles (integrated from an incomplete signal).”</p></li>
+</ul>
+<p>when many duplicate peaks occurred, I recommend to do:<br>
+1. Use larger “MS1 tolerance” of data collection tab.<br>
+2. Use lager “Mass slice width” of peak detection tab.<br>
+3. Use larger “Smoothing level” of peak detection tab.<br>
+4. Use larger “Retention time tolerance” of alignment tab.<br>
+5. Use larger “MS1 tolerance” of alignment tab.</p>
+<p>More info: http://www.metabolomics-forum.com/index.php?topic=1459.msg4350#msg4350</p>
+<p><em>MSMS ab cutoff</em>:</p>
+<p><em>QuantMass</em>:</p>
+<ol type="1">
+<li>First of all, the chromatogram deconvolution is performed by the information of “pure” extracted ion chromatogram of several m/z values.</li>
+<li>The quant mass is determined from such m/z values producing the singlet/no-coeluted chromatographic peak.</li>
+</ol>
+<p>At least in TMS-based GC-MS based metabolomics, m/z 147 (2xTMS moiety) becomes base peak in EI-MS spectrum for many metabolite features, and therefore, such the m/z value should not be used as the quant mass even though the m/z value is the base peak’s m/z value. Of course, the quant mass values can be changed by the quant mass manager of MS-DIAL.<br>
+For the data comparison in the large scaled data set, we should keep the same quant mass value for metabolite quantification. MS-DIAL offers such an environment.</p>
+<ol type="1">
+<li>if you put “QUANTMASS:” field in your msp format file, the metabolite is always quantified by the target m/z.</li>
+<li>Go to “Quantmass browser” of “Post processing” in the msdial menu, then, you can define the m/z values for each metabolite. The first option should be used if many biological samples are sequentially analyzed for a long time.<br>
+More info: http://www.metabolomics-forum.com/index.php?topic=1412.0</li>
+</ol>
+<p><em>Sigma value</em>:</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter-GC_HRMS_MSDIAL.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-Ion_Mobility_HRMS.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ion mobility HRMS</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

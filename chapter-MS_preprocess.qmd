@@ -1,0 +1,103 @@
+---
+Title: MS preprocess
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(readxl)
+library(knitr)
+```
+
+# **Pre-processing HRMS data** {#MSPreprocess}
+
+<br><br>
+
+## Raw data conversion
+
+### MSConvert
+
+```{r MSConvertCommands, echo = FALSE}
+knitr::kable(read_excel("files/MSConvert.xlsx"))
+
+```
+
+### Waters MSe
+
+https://ccms-ucsd.github.io/GNPSDocumentation/fileconversion_waters/
+
+## Peak picking
+
+<br>
+
+```{r PFOS isotopes, echo = FALSE, fig.cap= "PFOS isotopic patterns"}
+knitr::include_graphics("files/isotopic_pattern_PFOS.png")
+
+```
+
+<br>
+
+```{r peak picking, echo = FALSE, fig.cap= "Mass traces of PFOS and labelled standards"}
+knitr::include_graphics("files/mass_traces_PFOS_IS_RS.png")
+
+```
+
+<br><br> \## Alignment
+
+<br><br> \## Componentization
+
+<br><br> \## Proprietary and standardized MS data format <br> See: https://en.wikipedia.org/wiki/Mass_spectrometry_data_format
+
+<br><br>
+
+## Open tools for preprocessing
+
+## OpenMS and Toppview
+
+xx
+
+<br> https://www.youtube.com/watch?v=GuK1daIc6vo&list=PL2u38g_AG4MH7yCMF06N2VW7eZOJcglh7&index=5
+
+<br><br> \## MSConvert xx <br><br>
+
+## MsnBase and XCMS
+
+xx <br>
+
+### XCMS
+
+Check: A scalable workflow to characterize the human exposome, SI-11, https://www.nature.com/articles/s41467-021-25840-9#MOESM14
+
+IPO optimization
+
+### CAMERA
+
+http://www.metabolomics-forum.com/index.php?topic=278.0 calcCiS: Calculate correlation inside samples That means correlation across the peak = is it really coeluting or not? It is correlation inside the sample; not inside a sample group. This means that camera goes back to the raw data and compares extracted ion chromatograms. The illutration in Carsten's paper show this: http://pubs.acs.org/doi/abs/10.1021/ac202450g This will fail if compounds are perfectly coeluting.
+
+calcCaS: Calculate correlation accross samples They are correlated if high intensity of feature A means high intensity of feature B. The study design or sample groups are not used for this information. Look at these plots. Each dot is a sample.
+
+## PatRoon
+
+xx <br><br>
+
+https://www.researchsquare.com/article/rs-36675/v1 <br> https://rickhelmus.github.io/patRoon/articles/tutorial.html <br>
+
+OpenMS performs peak picking and isotope grouping in one step (any idea how to turn off this?), while XCMS does not perform this step here. From Rick: For OpenMS: you can use a trick for this by setting localMZRange=0, this way OpenMS won't be able to look for isotopes. Note that its detection was more developed for 'natural compounds' (eg proteomics, metabolomics) in mind, and that it isn't really good in grouping halogenated peaks anyway.
+
+PatRoon Docker:\
+In linux, run:\
+docker run --rm -p 8787:8787 -u 0 -e PASSWORD=yourpasswordhere -v /home/ORUNET.ORU.SE/twg/Raw_data:/home/rstudio/Raw_data patroonorg/patroonrs /init
+
+## MS-DIAL
+
+MS2Dec: <br> Sigma window value: 0.1 - 1.0. Smaller value will avoid clustering of peaks that are far from each other (false positive grouping).\
+In GC-HRMS, try 0.8 to separate and deconvolute very closely coeluting peak in GC (+-1). These parameters should be tested with e.g. QC samples with known compounds to get best deconvolution parameter for your samples. <br> MS/MS abundance cut off: increase to remove background noise
+
+<br><br>
+
+## Output formats
+
+<br> - MSnExp and XCMSnExp <br> - MSP <br> - MFG <br> - CSV (for both output data or metadata) <br>
+

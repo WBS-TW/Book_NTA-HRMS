@@ -1,0 +1,31 @@
+---
+Title: Preface
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+url: 'https\https://liu.se/en/employee/thawa68'
+github-repo: WBS-TW/WBS-TW.github.io
+cover-image: files/cover.png
+---
+
+
+# Preface
+
+
+<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+
+
+This is a work-in-progress book to introduce the concepts of suspect and nontarget analysis (SSA/NTA) with focus on environmental analytical chemistry and to provide practical demonstrations for a workflow for SSA/NTA.
+
+Does not include all the vast number of platforms, software and applications that can be used for SSA/NTA. <br>
+
+Includes the use of applications that has been developed by the author.
+
+Basic knowledge of R programming is a prerequisite to understand some of the codes
+
+The author do not take responsibility for programs or computer crashing.
+
+
+Please cite:
+

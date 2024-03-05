@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nontarget and suspect screening of organic compounds using HRMS - 14&nbsp; MTM HRMS Library: LC-HRMS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-GC_HRMS_MSDIAL.html" rel="next">
+<link href="./chapter-HRMS_Spectral_Lib_GC.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-HRMS_Spectral_Lib_LC.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Nontarget and suspect screening of organic compounds using HRMS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction and concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Sample_pretreatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>Sample pretreatment for nontarget and suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-MS_preprocess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>Pre-processing HRMS data</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Suspect_screening.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><strong>Suspect screening</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Mass_defect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><strong>Mass defect plots</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Retention_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><strong>Retention time index and prediction</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Molecular_networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><strong>Molecular networks</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-library_search_annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spectral libraries</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-data_post_processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Data post-processing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Conversion_HRMS_RawData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conversion of raw data from HRMS vendor format to open format</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_GC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">MTM HRMS Library: GC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-HRMS_Spectral_Lib_LC.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-GC_HRMS_MSDIAL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-LC_HRMS_MSe_MSDIAL.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-Ion_Mobility_HRMS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ion mobility HRMS</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-GCorbitrap_Handbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Appendix-Reproducible_research.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Reproducible research using Docker containers and similar tools</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_Dust.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Example workflow: indoor dust</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Example-GC-LRMS_nontarget.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>GC coupled with LRMS nontarget</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#analyze-the-standards-using-hrms" id="toc-analyze-the-standards-using-hrms" class="nav-link active" data-scroll-target="#analyze-the-standards-using-hrms"><span class="header-section-number">14.1</span> Analyze the standards using HRMS</a></li>
+  <li><a href="#convert-the-raw-data-file-from-lc-hrms-in-unifi-to-mzml-using-msconvert" id="toc-convert-the-raw-data-file-from-lc-hrms-in-unifi-to-mzml-using-msconvert" class="nav-link" data-scroll-target="#convert-the-raw-data-file-from-lc-hrms-in-unifi-to-mzml-using-msconvert"><span class="header-section-number">14.2</span> Convert the raw data file from LC-HRMS in unifi to mzML using MSconvert</a></li>
+  <li><a href="#fill-in-the-standard-infosheet" id="toc-fill-in-the-standard-infosheet" class="nav-link" data-scroll-target="#fill-in-the-standard-infosheet"><span class="header-section-number">14.3</span> Fill in the standard infosheet</a></li>
+  <li><a href="#use-ms-dial-to-perform-spectral-deconvolution-and-generate-spectra-for-each-compound" id="toc-use-ms-dial-to-perform-spectral-deconvolution-and-generate-spectra-for-each-compound" class="nav-link" data-scroll-target="#use-ms-dial-to-perform-spectral-deconvolution-and-generate-spectra-for-each-compound"><span class="header-section-number">14.4</span> Use MS-DIAL to perform spectral deconvolution and generate spectra for each compound</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><span style="color: red;">REWRITE SECTION TO ONLY USE DDA OR RUN BOTH DDA AND DIA?</span></p>
+<p><span style="color: red;">THIS SECTION IS INCOMPLETE AND SOME TEXT AND FIGURES ARE COPIED FROM GC TUTORIAL. NEED UPDATE!</span></p>
+<p><span style="color: red;">UNIFI SCIENTIFIC LIBRARY: https://support.waters.com/KB_Inf/UNIFI/WKB190999_How_to_build_and_manage_a_scientific_library_in_UNIFI</span></p>
+<p>Please see the introductory section in the previous chapter regarding the MTM HRMS library using GC-HRMS.</p>
+<p>For LC analysis, the chemical standards should be run using data dependent analysis (DDA) instead of data independent analysis (DIA). For our waters G2 XS qToF instrument, the MSe is equivalent to DIA. Main distinction of MSe is the use of a ramp of collision energy in the collision cell whereas other DIA methods use a fixed collision energy. Therefore the MS2 spectra between different instruments and collision energies will also differ, which makes spectral matching more challenging in LC-HRMS compared to GC-HRMS. It is therefore common to analys the same chemical standard using different collision energies to cover the different fragment spectra (MS2) for the same compound.</p>
+<p><span style="color: red;">ADD MORE INFO ABOUT ADDUCT SELECTION</span></p>
+<p>This tutorial will guide you through the different steps to export the spectra information for each compound from a standard to contribute to the MTM HRMS spectral library. The project is organized in different subfolders within the main folder folder named “<em>MTM_HRMS_LIB”</em>. Do not change the name of any folders.</p>
+<p>We first start with the raw data file from the HRMS analysis of a standard and we want to generate a <strong>.msp</strong> file as a final file format. The msp file is a file format developed by NIST to store mass spectral data. For more information about this format, please see this <a href="https://chemdata.nist.gov/dokuwiki/lib/exe/fetch.php?media=chemdata:nist17:nistms_ver23man.pdf">document</a>.</p>
+<p>The overall goal can be seen in Figure @ref(fig:combineMSP)</p>
+<p>At least one solvent blank needs to be analyzed together with the standards in order to subtract any blank signals at a later stage.</p>
+<p>The main steps of this procedure can be seen in below Figure @ref(fig:LCdiagramSpeclib).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-fc5c428f7f4fa797a128" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fc5c428f7f4fa797a128">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = TB]\n\n# node statements\nnode [shape = box]\n\nA [label = \"Analysis of standard \\n using LC-HRMS or GC-HRMS.\", fontsize = 24]\n\nB [label = \"Convert raw data from \\n vendor format to mzML file format\", fontsize = 24]\n\nC [label = \"Fill in compound and \\n method information in template\", fontsize = 24]\n\nD [label = \"Use MD-DIAL to perform spectral \\n deconvolution and generate \\n spectra for each compound\", fontsize = 24]\n\nE [label = \"Export the spectra to MS-FINDER \\n to annotate spectral peaks\", fontsize = 24]\n\nF [label = \"Export final spectra to msp format\", fontsize = 24]\n      \n      \n# edge statements\nedge [color = black]\nA -> {B}\nB -> {C}\nC -> {D}\nD -> {E}\nE -> {F}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>General workflow for spectral library</p>
+</div>
+</div>
+<p>The template folder for the spectral library is organized as follows:</p>
+<pre><code>MTM_HRMS_LIB
+│   MTMxxxxx_GC-EI-FT_POSITIVE.xlsx
+|   MTMxxxxx_LC-ESI-QTOF_POSITIVE.xlsx
+│   ..
+└───0_Main_Lib
+│   │   MTM_HRMS_MAINLIB.xlsx
+│   │   ..
+│   
+└───1_Standard_infosheets
+│   │   MTM00001_GC-EI-FT_POSITIVE.xlsx
+│   │   MTM00002_GC-EI-FT_POSITIVE.xlsx
+|   |   ..
+│
+└───2_mzML_data
+│   └───GC_CI_NEG_HRMS
+│   └───GC_CI_POS_HRMS
+│   └───GC_EI_HRMS
+|   └───LC_ESI_NEG_HRMS
+│   └───LC_ESI_POS_HRMS
+|
+└───3_MSP
+│   │   MTM00001_GC-EI-FT_POSITIVE_IASLDLGGHXYCEO-HWKANZROSA-N.msp
+│   │   MTM00002_GC-EI-FT_POSITIVE_UPMLOUAZCHDJJD-UHFFFAOYSA-N.msp
+│   │   ..
+│
+└───4_Massbank
+│   │   MTM00001.txt
+|   |   MTM00002.txt
+|   |   ..
+│
+└───MSDIAL_PROJECT
+|   └───MSDIAL_params
+|   
+└───R
+    |   MTM_HRMS_database.Rmd
+    </code></pre>
+<p>The main folder (MTM_HRMS_LIB) contain some template information sheet that are used to fill in information about the standard and the analysis method. The MTM id number (MTMxxxxx) for each standard infosheet is in numeric order and must contain 8 character in total. Check the MTM_HRMS_MAINLIB.xlsx for the latest id number and use the next one as the new MTM id.</p>
+<p><strong>INSTALL REQUIRED SOFTWARE</strong></p>
+<p>Several software and packages are needed to generate the spectra library. All are open access and free to use for academic purposes.</p>
+<ul>
+<li><em>Proteowizard</em>: We mainly use MSConvert which is bundled in the Proteowizard software package and you can download it <a href="http://proteowizard.sourceforge.net/download.html">here</a>.<br>
+</li>
+<li><em>MS-DIAL</em>: used to analyze the mzML file and generate spectra. Download the latest version <a href="http://prime.psc.riken.jp/compms/msdial/main.html">here</a>. No installation is necessary so you only need to extract the downloaded zip file to your folder of choice.<br>
+</li>
+<li><em>MS-FINDER</em>: used to annotate the individual peaks in the spectrum and export to msp file.</li>
+</ul>
+<section id="analyze-the-standards-using-hrms" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="analyze-the-standards-using-hrms"><span class="header-section-number">14.1</span> Analyze the standards using HRMS</h2>
+<p>It is recommended to analyze single standards but mixtures are also feasible to analyze if the analytes are not coeluting too close to each other. The deconvolution algorithm of MS-DIAL is able to distinguish between two peaks that are closely eluted but still have slightly different retention times and peak shapes.<br>
+You should also inject a <em>solvent blank</em> to perform blank subtraction later in MS-DIAL.</p>
+</section>
+<section id="convert-the-raw-data-file-from-lc-hrms-in-unifi-to-mzml-using-msconvert" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="convert-the-raw-data-file-from-lc-hrms-in-unifi-to-mzml-using-msconvert"><span class="header-section-number">14.2</span> Convert the raw data file from LC-HRMS in unifi to mzML using MSconvert</h2>
+<p>Please check the steps according to @ref(MSConvertunifi)</p>
+</section>
+<section id="fill-in-the-standard-infosheet" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="fill-in-the-standard-infosheet"><span class="header-section-number">14.3</span> Fill in the standard infosheet</h2>
+<p>In the main folder, choose one of the standard information sheets depending on whether you used LC or GC and the ionization mode. The content of the information sheet looks slightly different depending on LC or GC. Copy the chosen infosheet to the “1_Standard_infosheets” folder. In that folder, rename the copied infosheet to the new MTM id as mentioned in previous section.<br>
+The infosheet is organized in accordance to the format used by <a href="https://massbank.eu//MassBank/">Massbank Europe</a>. A description on the Massbank record format can be found <a href="https://github.com/MassBank/MassBank-web/blob/main/Documentation/MassBankRecordFormat.md">here</a>. It is important that you do not change any of the titles in the first column in the infosheet, as the format requirement is quite strict. Also, try not to copy text from one cell to another as it might change the underlying format of the cells (if you think you made an error, copy the template and redo again).<br>
+The rows that are in bold are information that are mandatory to fill in.</p>
+<p>The “ACCESSION” row is the MTM id.</p>
+<p>The “RECORD_TITLE” will be automatically generated based on the information you filled in so you should not fill this row.</p>
+<p>“COMMENT: centroided mzML file name” is for internal purposes and refers to the name of the mzML file you converted and copied to the “MTM_HRMS_LIB/2_mzML_data/../” folder.</p>
+<p>“COMMENT: msp file name” is automatically generated and will be used later to name the msp file.</p>
+<p>“COMMENT: CONFIDENCE” refers to how confident you are of the identification of your standard according to the <a href="https://pubs.acs.org/doi/abs/10.1021/es5002105">“Schymanski scale”</a>. Leave it as “Reference Standard (Level 1)”, unless there are standards where you cannot distinguish or identify between different isomers in a standard. In this case, you should use “Level 3”. An example is “Technical mixture (Level 3)”, where we analyzed a technical standard (usually &lt;90% purity) and several isomeric peaks can be seen in the chromatogram. In this case, I usually individually register each isomer in its own infosheet.</p>
+<p>“CH$NAME:” occurs twice which means you have to input two different names for the compound in the standard, because a compound can have different names. It could be the common name specified in PubChem, the IUPAC name, trade name or the abbreviation.</p>
+<p>“CH$IUPAC” is the InChI and always starts with “InChI=”. You can find all these information for the compound by searching in <a href="https://pubchem.ncbi.nlm.nih.gov/">PubChem</a>.</p>
+<p>For GC compounds, you also need to fill in the “AC$CHROMATOGRAPHY: KOVATS_RTI” and “AC$CHROMATOGRAPHY: RETENTION_TIME”. These will be available later in MS-DIAL.</p>
+<p>The other rows should be quite straightforward to fill in. If you use the same method for many standards, then you can save a copy of an infosheet to use as a method template, while only updating information for each specific compound: ACCESSION, DATE, COMMENT: centroided mzML file name, CH$NAME, CH$NAME, CH$FORMULA, CH$EXACT_MASS:, CH$SMILES:, CH$IUPAC:, CH$LINK: CAS, CH$LINK: INCHIKEY</p>
+<p>The <em>AC$CHROMATOGRAPHY: RETENTION_TIME</em> row will be obtained later using MS-DIAL.</p>
+<p>Now that you have filled in most information about the compound, we can proceed to process the mzML file to extract the spectra using MS-DIAL (although you can also first process the mzML files and then fill in the information afterwards).</p>
+</section>
+<section id="use-ms-dial-to-perform-spectral-deconvolution-and-generate-spectra-for-each-compound" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="use-ms-dial-to-perform-spectral-deconvolution-and-generate-spectra-for-each-compound"><span class="header-section-number">14.4</span> Use MS-DIAL to perform spectral deconvolution and generate spectra for each compound</h2>
+<p>The graphical user interface of MS-DIAL takes some time to get used to since it is centered around detected peaks. It is important that you choose the correct parameters in the beginning since the parameters can affect the peak detection and alignment, or else you need to redo the data preprocessing again which could take long time if you are analyzing a lot of samples. When you run a large number of real samples, it is recommended to first optimize the parameters using e.g.&nbsp;QC samples. In this case where we analyze standards, then the default parameters with some instrument specific parameters can be used. These are found in the subfolder <em>MSDIAL_PROJECT/MSDIAL_params/</em>. If you want to know more details about data processing using MS-DIAL, please check the <a href="https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial.html">MS-DIAL online tutorial</a>.</p>
+<p>The below steps are based on the workflow for GC-EI orbitrap data described by <a href="https://www.frontiersin.org/articles/10.3389/fpubh.2021.622558/full">Price et al.</a> and adapted to LC-HRMS.</p>
+<p><strong>IN THIS EXAMPLE HERE, I WILL USE ONE STANDARD OF PFAS ANALYZED IN LC-ESI IN POSITIVE MODE</strong></p>
+<p><strong>1.</strong> In the File menu, start a new project. You must choose a file path where the mzML file(s) are located. When the data analysis is finished, several files associated with the analysis is created in the same folder. Depending on GC or LC analysis, then different parameters needs to be selected. Below Figure @ref(fig:LCMSDIALStartup) shows parameters for <strong>LC analysis</strong>. LC-ESI is a soft ionization and the Waters G2 XS qtof instrument uses MSe which has an alternating low energy scan and high energy scan. Choose <em>“SWATH-MS”</em> and then browse to the _“MSDIAL_PROJECT_params*MSe_50_1200_params.txt”* file. This specifies the parameters for the MSe experiment. Since we also centroided the mzML file for both MS1 and MSMS so these parameters needs to be specified. In this example, we ran a PFAS standard in negative mode, so this ion mode was choosen in this case.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/LC_MSDIAL_start.png" class="img-fluid figure-img" width="925"></p>
+<figcaption class="figure-caption">Starting a new project for LC analysis</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Click on the “Advanced: add further meta data” tab. The information for different instruments in our lab can be found in the file “/MTM_HRMS_LIB/MSDIAL_PROJECT/MSDIAL_params/Metadata.txt”. If your instrument is not present then you can input these by yourself. This metadata is optional but the information will be added to the msp file later.<br>
+When you are finished, click on next.</p>
+<p><strong>2.</strong> Click on the browse button and then you will select the files to process. The default file format is .abf but we want to process .mzML so choose this file format instead. You will now see the mzML file(s) in your working directory. If you want to process multiple files use <em>Shift/Ctrl + select</em>. Make sure your standards are designated as “Sample”. You should include a solvent blank which will be designated as “Blank”. The other columns are for post processing and not important for this spectral database workflow. You can learn more about these in the <a href="https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial.html">tutorial</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/LC_MSDIAL_choosefiles.png" class="img-fluid figure-img" width="939"></p>
+<figcaption class="figure-caption">Choosing files</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Click on next to the Analysis parameter settings.</p>
+<p><strong>3.</strong> The following instructions are for Waters G2 XS qtof in ESI negative mode, but the other processing methods are similar. Below Figure @ref(fig:LCMSDIALPeakdetection) shows the parameters for the XS qtof instrument. The MS1 and MS2 tolerance was set to <em>0.05 Da</em>. Click on the “Advanced” tab and check the <em>“Consider Cl and Br elements”</em>. You can also choose how many samples (threads) to process in parallel.</p>
+<p>Continue with the <em>“Peak detection”</em> tab and set an appropriate minimum peak height. Use the following parameters for our spectral library purpose:<br>
+Minimum peak height: 1000 amplitude.<br>
+Mass slice width: 0.05 Da.</p>
+<p>This is instrument specific and also depends on the concentration of the analytes. The advanced tab can be left as default.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/LC_MSDIAL_peakdetection.png" class="img-fluid figure-img" width="602"></p>
+<figcaption class="figure-caption">Peak detection parameters</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Continue to the “MS2Dec” tab.</p>
+<p><strong>4.</strong> The sigma window value is an important parameter which determines the efficiency of the deconvolution algorithm. The parameter depends on the instrument and Figure @ref(fig:LCMSDIALMS2Dec) shows the recommended ones for the GC orbitrap analysis of standards. From the <a href="https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial.html#chapter-4">online tutorial</a>: “The sigma window value is highly affected by the resolution of deconvolution. A higher value (0.7-1.0) will reduce the peak top resolutions, i.e.&nbsp;the number of resolved chromatographic peaks will be decreased. On the other hand, a lower value (0.1-0.3) may also recognize many noise chromatographic peaks..”</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/LC_MSDIAL_MS2Dec.png" class="img-fluid figure-img" width="602"></p>
+<figcaption class="figure-caption">MS2Dec parameters</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The <em>“Identification”</em> tab is not necessary to modify for our purpose and mainly important when processing real samples (using the HRMS library as suspect list).</p>
+<p>Go on to the <em>“Adduct”</em> tab.</p>
+<p>__5._ The adduct should be chosen based on your knowledge of the ionization behavior of the standards. Most common is the [M-H]- ion for negative mode and [M+H]+ ion for positive mode. some compounds have much higher ion abundance for other adducts and therefore these can be included also. You also define your own adducts in the <em>“User-defined adduct”</em> subtab if it is not present in the list.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/LC_MSDIAL_Adduct.png" class="img-fluid figure-img" width="606"></p>
+<figcaption class="figure-caption">Adduct parameters</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>“Alignment”</em> tab. The purpose of alignment is to align all individual samples so the retention times for the same for the same compound between all samples. This is because the chromatographic separation will change between runs and batches and needs to be aligned. In the <em>“Advanced”</em> subtab, check the <em>“Remove features based on blank information”</em>. A sample/blank ratio of 5 should be ok. This will remove any features that are lower than five times the blank samples (solvent blank in this case). Everything else can be as default.</p>
+<p>The <em>“Isotope tracking”</em> tab does not need to be modified in this workflow.</p>
+<p>Press <strong>Finish</strong> and the process will begin. This might take some time depending on how many samples you are processing and the processing power of the computer.</p>
+<p>Now you are done and click on “Finish”.</p>
+<p>After the peak detection and deconvolution process is finished, you should see below screen.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/MSDIAL_7.png" class="img-fluid figure-img" width="1728"></p>
+<figcaption class="figure-caption">x</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Double click on the sample name where your standard was analyzed (see 1 in Figure @ref(fig:LCMSDIALSample)). Your screen will be switched to the “Peak spot viewer” tab. Each detected component will be seen as a downward pointing triangle (see 2 in Figure @ref(fig:LCMSDIALSample)). You should zoom in to the peak by moving you pointer to below the x-axis and scroll to zoom in the retention time axis (3). You should now be able to see the peak more clear and click on the peak as seen in 4 in Figure @ref(fig:LCMSDIALPeak).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/MSDIAL_8.png" class="img-fluid figure-img" width="1809"></p>
+<figcaption class="figure-caption">x</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>You can then see the EIC (5) of the chosen peak to check if the peak shape is good. The extracted spectrum will be shown in (6), and the retention time and retention index can be seen in (7). This is the deconvoluted spectrum and you can see the peak shape of the ion fragments with the highest intensities by choosing the “EI chrom” tab (8) which allows you to see if the deconvolution process has been successful (9). When you feel that the quality is good, then you can export the spectrum to MS-FINDER by clicking on the “MS FINDER search” button (10).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="files/speclib/MSDIAL_9.png" class="img-fluid figure-img" width="1921"></p>
+<figcaption class="figure-caption">x</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the new MS-FINDER window, fill in the information in (10) in Figure @ref(fig:LCMSFINDER) for your compound. For GC-MS, in most cases the monoisotopic peak (somewhat equivalent to the precursor ion in LC mode) and you can choose the ion closest to the monoisotopic mass of your standard compound. Then choose the precursor type. For GC-MS: choose [M]+. (M plus dot). After you are done, select “Fragment annotation (single)” in the ““Analysis” menu (11). Afterwards, select the “Fragment annotation (batch job)” under the same menu. The <em>in silico</em> annotation of the fragment ions should now be calculated (12) and you can thereafter export the annotated spectrum as an “.msp” file (see 13). Use the file name that was generated in the standard infosheet you filled at the “COMMENT: msp file name” row. Save the file in the “3_MSP” subfolder.</p>
+<p>Now you are finished with generating the msp file for your standard spectrum.</p>
+<p><strong>Send the newly created files together with the mzML files to Thanh</strong></p>
+<p>The mainlib excel file as well as the combined msp file will be updated on a regular basis or upon request.</p>
+<p>The final msp file will look something like below (not including the ## sign). A note is that the retention index is not included by MS-FINDER when you export to msp file. This will be later automatically added to the combined database based on the retention index value in the infosheet for the specific standard. Therefore, it is important to check that all files have consistent MTM IDs for the same measured compound.</p>
+<p><span style="color: red;">NEED TO UPDATE TO LC msp</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter-HRMS_Spectral_Lib_GC.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">MTM HRMS Library: GC-HRMS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-GC_HRMS_MSDIAL.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

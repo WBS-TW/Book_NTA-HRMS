@@ -1,0 +1,297 @@
+---
+Title: Exp Design
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# **Experimental design** {#ExpDesign}
+
+```{r}
+library(DiagrammeR)
+```
+
+```{r diagram_exp_des, echo=FALSE, fig.cap= "Design workFlow", fig.align='center'}
+
+# Diagrammer: rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
+
+grViz("
+digraph Scheme {
+      
+# graph statement
+graph [layout = dot, overlap = false, rankdir = LR]
+
+# node statements
+node [shape = box,
+fontname = Helvetica, fontsize = 35, style = filled]
+      
+node [color = black, fillcolor = white, fixedsize = true, width = 4, height = 2]
+A [label = 'Hypothesis']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+B1 [label = 'Experimental design']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]
+C1 [label = 'Sampling design \\n and collection']
+C2 [label = 'QA/QC']
+C3 [label = 'Collection of \\n metadata']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+D1 [label = 'Chemical analysis']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+E1 [label = 'Data analysis']
+
+      
+      
+# edge statements
+edge [color = black]
+A -> {B1}
+B1 -> {C1 C2 C3}
+C1 -> {D1}
+C2 -> {C1}
+C2 -> {D1}
+C3 -> {E1}
+D1 -> {E1}
+
+      
+      }
+      ")
+
+
+```
+
+## Hypothesis
+
+## Experimental design
+
+-   Compounds of interest?\
+-   Amendable to GC and/or LC?\
+-   Instrumentations available?
+
+## QA/QC measures
+
+<br>
+
+### Recovery (Extraction efficieny)
+
+**Spiking with native before extraction to evaluate the extraction efficiency.**
+
+### Matrix effects
+
+$$
+Recovery\textrm{(%)} = \frac{C_{spiked blank} - C_{unspiked blank}}{C_{added}}
+$$
+
+$$
+Recovery\textrm{(%)} = \frac{C_{spikedsample} - C_{unspikedsample}}{C_{added}}
+$$
+
+**Spiking with and after extraction to evaluate the extraction efficiency and matrix effect.**
+
+https://www.future-science.com/doi/10.4155/bio-2017-0214
+
+Taken from (https://www.sciencedirect.com/science/article/pii/S0160412020318274#s0090)\
+Methodology for the evaluation of matrix effect\
+Dust samples (100 mg) were extracted and cleaned up using the method described previously, and with no standards spiked before extraction (Chen et al., 2012). The final extract containing the OPEs was reconstituted in 100 μL of methanol and then aliquoted into equal volume, A and B (50 μL each). Portion A was spiked with 50 μL of standard solution of OPE mixtures at a concentration of 50 ng/mL per analyte. Portion B was spiked only with 50 μL of methanol as reference control. Finally, the aforementioned 50 μL of OPE mixture containing 50 ng/mL standards was mixed with 50 μL methanol as external standard solutions (S). Six replicate dust samples were included in matrix effect assessment. By comparing the response differences of the analytes in the sub-samples A and B to the responses of the analytes in the external standard, a matrix effect (ME) value was calculated as:\
+$$
+ME\textrm{(%)} = \frac{A_i - B_i}{S_i} * 100
+$$
+
+where Ai, Bi and Si are the chromatographic peak areas of the analyte (i) in sub-samples A and B and external standard solution (S), respectively. The analyte signals may be suppressed or enhanced by the co-eluted contents in the samples if ME (%) is lower or higher than 100%, respectively. The matrix effect results are shown in Table S2. If ME ∼0%, there is no matrix effect. If ME\> 0%, an ion-suppression occurs and, if ME \<0%, ion-enhancement occurs.
+
+-   Dilute QC extracts to investigate potential matrix effects(?).\
+-   Field blanks.\
+-   Procedural blanks.\
+-   Solvent blanks.\
+-   Procedural replicates.\
+-   Triplicate injections.\
+-   Should also inject the procedural replicates in triplicates.\
+-   Standard reference material.\
+-   Randomization.\
+-   Retention time index standard.\
+-   Volumetric internal standard added into the final extract to guard against small difference of extract volumes, as well as enable normalization of intensities/areas between samples and batches.Use e.g. 4,4'-Dibromooctafluorobiphenyl which should not be in the samples and is stable.\
+-   
+
+## Data directory structure
+
+Before starting with chemical and data analysis, you should first structure the project folder in your computer where you store all the raw and metadata. Below is a suggestion for file directory structure for your project folder. Try to use [snake_case](https://en.wikipedia.org/wiki/Snake_case) for folder and file names as space or other special characters can cause errors in various computer systems and software.
+
+```         
+YOUR_PROJECT_NAME
+│   Project_info.xlsx
+│
+└───Chemicals_Database
+│   │   Chemicals.xlsx
+│   │   ...
+│   │
+│   
+└───Literature
+│   │   Interesting_paper1.pdf
+│   │   ..
+│
+└───Raw_files
+│   │   File_info.xlsx
+│   │   ..
+│   │   └───LC_positive
+│   │   └───LC_negative
+│   │   └───GC_orbitrap
+│
+└───Results_Data_analysis
+│   │   Hit_list.xlsx
+│   │   Quantification.xlsx
+│   │   ..
+│   │   └───Peaklist_LC_positive
+│   │   └───Peaklist_LC_negative
+│
+└───Sample_info
+│   │   Sample_info.xlsx
+│
+└───Manuscript
+│   │   Manuscript_v1.docx
+
+    
+    
+    
+```
+
+Here, the chemicals database could also be from an external folder or library. This is recommended to have a central database for all chemicals of interest such as suspect list, spectral libraries, etc.
+
+## Sampling design and collection
+
+xx <br>
+
+What's in a name? <br> Sample names/ID <br> Naming sample IDs might seem trivial at first but could help downstream data analysis and also to clarify your sampling design. It is important to have a uniform naming. convention and that the sample codes could also specify if a sample is a field blank, procedural blank, replicates, belong to a specific group...\
+- Dont start a sample ID with a number\
+- Avoid using space and special characters in the file name. Space can be replaced with underscore "\_" instead.
+
+## Collection of metadata
+
+Metadata is the information about data. In this particular case, it is the relevant information about our samples and chemicals of interest.\
+Examples could be the location, group,
+
+## Chemical analysis
+
+Sample order is important and should be noted in the sample information sheet. This can be important in downstream data analysis, e.g. retention time correction can be more efficiently corrected if the sample order are correctly set.
+
+### Data recording modes
+
+From https://doi.org/10.1093/bioinformatics/btab279: "DDA strategy acquires a survey full-scan mass spectrum to select top N most abundant precursor ions for fragmentation spectra acquisition in the next several MS2 scans. (b) DIA fragments all the available precursors for MS2 scans in large predefined m/z and RT windows. he resulting MS2 are typically multiplexed and require further spectral deconvolution.\
+Data-independent acquisition (DIA) systematically fragments all the available precursors for MS2 scans in large predefined m/z windows over time. Due to its large precursor ion isolation window, the resulting MS2 are typically multiplexed (several molecules captured in the same spectrum) (Bilbao et al., 2015; Doerr, 2015). The post analysis of these fragmentation spectra requires advanced spectral deconvolution methods."
+
+A good comparison between DDA and DIA can be seen in [Guo and Huan](https://doi.org/10.1021/acs.analchem.9b05135)
+
+## Data analysis
+
+xx <br>
+
+## Workflow examples
+
+<br>
+
+Iterative identification workflow
+
+```{r example_workflows, echo=FALSE, fig.cap= "Workflow for nontarget using XX"}
+
+# Diagrammer: rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
+
+grViz("
+digraph Scheme {
+      
+# graph statement
+graph [layout = dot, overlap = false, rankdir = LR]
+
+# node statements
+node [shape = box,
+fontname = Helvetica, fontsize = 35, style = filled]
+      
+node [color = black, fillcolor = white, fixedsize = false]
+A [label = 'Indoor dust collected \\n among different \\n use categories']
+
+node [color = black, fillcolor = white, fixedsize = false]
+B1 [label = 'Collect different groups']
+B2 [label = 'QA/QC']
+
+
+node [color = black, fillcolor = white, fixedsize = false]
+C1 [label = 'Sample different groups']
+C2 [label = 'Suspect list of Cl/Br compounds']
+
+node [color = black, fillcolor = white, fixedsize = false]
+D1 [label = 'Chemical analysis']
+
+node [color = black, fillcolor = white, fixedsize = false]
+E1 [label = 'Suspect screening']
+E2 [label = 'Nontarget']
+
+node [color = black, fillcolor = white, fixedsize = false]
+F1 [label = 'Mass defect plots']
+
+node [color = black, fillcolor = white, fixedsize = false]
+G1 [label = 'In silico transformation product list for identified compounds']
+
+      
+      
+# edge statements
+edge [color = black]
+A -> {B1}
+B2 -> {C1}
+B1 -> {C1 C2}
+C1 -> {D1}
+C2 -> {E1}
+D1 -> {E1}
+E2 -> {F1}
+
+      
+      }
+      ")
+
+
+```
+
+```{r example_identification, echo=FALSE, fig.cap= "Workflow for structure elucidation and identification"}
+
+# Diagrammer: rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
+
+grViz("
+digraph Scheme {
+      
+# graph statement
+graph [layout = dot, overlap = false, rankdir = LR]
+
+# node statements
+node [shape = box,
+fontname = Helvetica, fontsize = 35, style = filled]
+      
+node [color = black, fillcolor = white, fixedsize = false]
+L1 [label = 'Level 1']
+L2 [label = 'Level 2']
+L3 [label = 'Level 3']
+L4 [label = 'Level 4']
+L5 [label = 'Level 5']
+
+node [color = black, fillcolor = white, fixedsize = false]
+S1 [label = 'Mass defect plot']
+S2 [label = 'Molecular networking']
+S3 [label = 'Fragmentation prediction']
+S4 [label = 'Retention time prediction']
+S5 [label = 'HRMS library search']
+
+
+node [color = black, fillcolor = white, fixedsize = false]
+A1 [label = 'Exposure index']
+A2 [label = 'USdbdb']
+A3 [label = 'Building products database']
+
+      
+# edge statements
+edge [color = black]
+
+
+      
+      }
+      ")
+
+
+```

@@ -1,0 +1,11 @@
+# **GC coupled with LRMS nontarget** {#GCLRMSNTA}
+
+Agilent Chemstation Data If using old Chemstation .d folders, then these should be converted to Masshunter .d files.
+
+Use the GC MSD translator software: <https://www.agilent.com/en/support/software-informatics/masshunter-suite/masshunter/masshunter-software/chemstation-to-masshunter-data-file-translator>.
+
+-   Convert the folders to Masshunter .d files
+
+-   Convert the .d files to mzml using MSConvert
+
+-   Use the mzml with MSDIAL

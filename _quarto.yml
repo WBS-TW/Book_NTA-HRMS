@@ -1,0 +1,42 @@
+project:
+  type: book
+
+book:
+  title: "Nontarget and suspect screening of organic compounds using HRMS"
+  author: "Thanh Wang"
+  date: "2024-03-05"
+  chapters:
+    - index.qmd
+    - chapter-intro.qmd
+    - chapter-Experimental_design.qmd
+    - chapter-Sample_pretreatment.qmd
+    - chapter-MS_preprocess.qmd
+    - chapter-Suspect_screening.qmd
+    - chapter-Mass_defect.qmd
+    - chapter-Retention_time.qmd
+    - chapter-Molecular_networks.qmd
+    - chapter-library_search_annotation.qmd
+    - chapter-data_post_processing.qmd
+    - chapter-Conversion_HRMS_RawData.qmd
+    - chapter-HRMS_Spectral_Lib_GC.qmd
+    - chapter-HRMS_Spectral_Lib_LC.qmd
+    - chapter-GC_HRMS_MSDIAL.qmd
+    - chapter-LC_HRMS_MSe_MSDIAL.qmd
+    - chapter-Ion_Mobility_HRMS.qmd
+    - Appendix-GCorbitrap_Handbook.qmd
+    - Appendix-Reproducible_research.qmd
+    - Example_Dust.qmd
+    - Example_PFASs.qmd
+    - Example-GC-LRMS_nontarget.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

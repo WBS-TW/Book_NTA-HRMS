@@ -1,0 +1,152 @@
+---
+Title: GC HRMS with MSDIAL
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(DiagrammeR)
+
+```
+
+# GC-(LR)HRMS raw data preprocessing with MS-DIAL {#GCMSDIAL}
+
+## All steps
+
+Note (most of the steps can be used with GC-LRMS data, and will be documented here \@ref(GCLRMS)
+
+```{r diagram_GC_workflow, echo=FALSE, fig.cap= "GC HRMS workFlow", fig.align='center'}
+
+# Diagrammer: rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
+
+grViz("
+digraph Scheme {
+      
+# graph statement
+graph [layout = dot, overlap = false, rankdir = LR]
+
+# node statements
+node [shape = box,
+fontname = Helvetica, fontsize = 35, style = filled]
+      
+node [color = black, fillcolor = white, fixedsize = true, width = 4, height = 2]
+A [label = 'Raw mzML data']
+A1 [label = 'In-house \\n msp ibrary']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+B1 [label = 'MS-DIAL']
+B2 [label = 'RIKEN msp' ]
+B3 [label = 'NIST msp']
+node [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]
+C [label = 'MS-LIMA']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]
+D [label = 'ToppView (OpenMS)']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]
+E [label = 'Lib2Nist']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+F [label = 'NIST SearchMS']
+
+node [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]
+G [label = 'RamSearch']
+
+      
+      
+# edge statements
+edge [color = black]
+A -> B1 -> B2
+A -> D
+
+A1 -> E
+
+B2 -> F -> B3 -> G
+B2 -> C
+E -> F
+
+      }
+      ")
+
+
+```
+
+This tutorial will guide you through the different steps to process raw data from **GC orbitrap HRMS** using MS-DIAL. You should familiarize yourself with the workflow on GC-HRMS spectral library in the previous section \@ref(GClib) as well as install the required software specified in the section. You should also check the online tutorial provided by the developers: https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial
+
+You first need to convert the .raw files from GC orbitrap HRMS to the open .mzml format using MSConvert according to \@ref(MSConvertGC).
+
+## Post processing
+
+### Additional search against NIST library using MSPepSearch and RamSearch
+
+You can export the aligned results as RIKEN msp from MS-DIAL and query this again a NIST library. Although the NIST library is recorded in low resoution unit mass, the large libary is also useful complement to the in-house HRMS library. There is two ways to query against the NIST and own library; using either the command line program MSPepSearch or the GUI software RamSearch (Broeckling et al, Anal. Chem. 2016, 88, 18, 9226--9234).\
+Follow these steps:
+
+1.  In MS-DIAL: click "Export" -\> "Alignment result". Check "Representative spectra", "Filter by the ion abundances of blank samples" and choose "Export format" to *msp* and click on "Export" button.
+
+2.  Open the NIST MS Search program. Clear the results from previous search. Import the exported RIKEN msp to NIST MS Search. No need to wait until the search is finished (press abort after the import is finished). Then select all individual queries and export as msp. It has been found that Lib2NIST might not working properly for some RIKEN dataset and therefore the NIST MS Search protocol is more compatible with MSPePSearch and RamSearch.
+
+3.  To use the command line MSPepSearch, please check \@ref(mspepsearch). For manual library query, it is recommended to use RamSearch. First, download the software which can be found at the supplementary information of the paper by Broeckling et al (Anal. Chem. 2016, 88, 18, 9226--9234). Install the software and follow the tutorial found in the installation folder and query against for GC-MS data. RamSearch uses MSPepSearch to query the msp files against NIST libraries. An advantage of RamSearch is the GUI which allow you to compare the query spectrum with the library spectra. Furthermore, you can also sort the hits according to the various match scores, which saves a lot of time by only look at those that have high scores.
+
+4.  You can also add own library to the NIST main folder to enable multiple library searches. To do this, follow the steps in \@ref(lib2nist).
+
+5.  In order to provide more more robust quantitative comparison, you can manually set up a quantification method in Tracefinder by choosing the suspects with high identification confidence. Make a list of the quantification ion (high abundance and at high m/z, preferably the molecular ion) and 2 qualitative ions, as well as the retention time. If available, then also choose representative ions for the RS in order to reduct the variations of intensity between different samples. The integrated peaks can be used for pseudo-quantification as well as comparative statistics of quantitative ions between samples (e.g. PCA, HCA,..).
+
+## Further explanation for some terminologies apart from the tutorial (https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial)
+
+*Gap fill*: The peak less than "minimum abundance" parameter of peak detection tab will be not detected even though there is a peak, and it can be gap-filled for the alignment process if the peak having the same RT and m/z is detected in other samples.
+
+From http://www.metabolomics-forum.com/index.php?topic=1469.0:
+
+In the alignment process, this program will make a master peak list (in a worst case) like:
+
+(A) RT: 1.05 min, m/z: 100.01\
+(B) RT: 1.1 min, m/z: 100.015\
+(C) RT: 1.2 min, m/z: 100.03.
+
+Then, a peak having e.g. RT: 1.1 min and m/z: 100.02 in a file e.g. (Q) will be aligned to (B) of the master list. After that, this program will recognize that the file (Q) does not have the certain peaks for (A) and (C), and then the program will perform the gap filling method to fill the values. However, for example, when users use an RT tolerance as 0.1 min and an m/z tolerance as 0.01 Da for the alignment tolerance, newly created peak for a master list's (A) in the file (Q) should be nearly equal to what the file (Q) has for the master peak list's (B) because the extracted ion chromatogram for the gap fill process for peak (A) should be drawn by the tolerances of RT=1.05 min +/ 0.1 min, m/z=100.01+/- 0.01. Because of these, MS-DIAL is supposed to export very similar peak height/area values for the master peak list's (A) and (B) in the result of file (Q). Here, (B) is recognized as "detected" and (A) is recognized as "gap-filled" although the origin of peak is the same between them. You can know the peak origins (detected or gap-filled) in the 'peak id' matrix from the alignment result export option where the "-1" value is described when the peak value is inserted by the gap-filled process.
+
+*Mass slice width*: depending on the processing settings, sometimes we observe the same compound splitting into 2-3 different features, and we think the mass slice width (in Peak detection) may be one of the parameters driving this effect (in addition to the alignment tolerance across samples).
+
+How can we properly to choose a slice width that fits our data, i.e. neither a too wide nor too narrow? For high-res Orbitrap a width of 0.05 Da is suggested. As an example, attached is an internal standard run on our LC Orbitrap (acquired at 140.000 resolution, profile).
+
+From my understanding of Tsugawa et al 2015 (Peak spotting) https://www.ncbi.nlm.nih.gov/pubmed/25938372 and the math presentation describing the MS-DIAL peak detection algorithm (default 0.1 Da), it seems MS-DIAL would correct the merging of BPCs across different m/z widths, somewhat similarly to XCMS? Below, from Smith et al 2006 (Peak detection) https://pubs.acs.org/doi/10.1021/ac051437y
+
+"An important detail is the relationship between spectral peak width and slice width.
+
+-   if the peak width is larger than slice width: the signal from a single peak may bleed across multiple slices. Low-res MS produce peak widths greater than the XMCS default 0.1 m/z slice. The MEND peak detection algorithm uses a scoring function to assess whether a chromatographic peak is also at the maximum of a spectral peak, preemptively removing such bleed. Instead of eliminating spurious extra peaks during detection, our algorithm uses a post-processing step that descends through the peak list by intensity, eliminating any peaks in the vicinity (0.7 m/z) of higher intensity peaks.
+
+-   if the peak width is smaller than the slice width: high-res TOF or Fourier transform MS often exhibit such behavior. In that case, depending on the scan-to-scan precision of the instrument, the signal from an analyte may oscillate between adjacent slices over chromatographic time, making an otherwise smooth peak shape appear jagged. Based on operator knowledge of the mass spectrometer characteristics, we optionally combine the maximum signal intensity from adjacent slices into overlapping EIBPCs (i.e., 100.0/100.1, 100.1/100.2, etc.), That initial step produces both smooth and jagged chromatographic profiles, which are then used for filtration and peak detection. During the vicinity elimination postprocessing step, peaks detected from smooth profiles (integrated from the full signal) are selected over peaks detected from jagged profiles (integrated from an incomplete signal)."
+
+when many duplicate peaks occurred, I recommend to do:\
+1. Use larger "MS1 tolerance" of data collection tab.\
+2. Use lager "Mass slice width" of peak detection tab.\
+3. Use larger "Smoothing level" of peak detection tab.\
+4. Use larger "Retention time tolerance" of alignment tab.\
+5. Use larger "MS1 tolerance" of alignment tab.
+
+More info: http://www.metabolomics-forum.com/index.php?topic=1459.msg4350#msg4350 *QuantMass*:
+
+1.  First of all, the chromatogram deconvolution is performed by the information of "pure" extracted ion chromatogram of several m/z values.
+2.  The quant mass is determined from such m/z values producing the singlet/no-coeluted chromatographic peak.
+
+At least in TMS-based GC-MS based metabolomics, m/z 147 (2xTMS moiety) becomes base peak in EI-MS spectrum for many metabolite features, and therefore, such the m/z value should not be used as the quant mass even though the m/z value is the base peak's m/z value. Of course, the quant mass values can be changed by the quant mass manager of MS-DIAL.\
+For the data comparison in the large scaled data set, we should keep the same quant mass value for metabolite quantification. MS-DIAL offers such an environment.
+
+(1) if you put "QUANTMASS:" field in your msp format file, the metabolite is always quantified by the target m/z.
+(2) Go to "Quantmass browser" of "Post processing" in the msdial menu, then, you can define the m/z values for each metabolite. The first option should be used if many biological samples are sequentially analyzed for a long time.\
+    More info: http://www.metabolomics-forum.com/index.php?topic=1412.0
+
+## GC-LRMS {#GCLRMS}
+
+This is a workflow for Agilent GC-LRMS single quandrupole .d data.\
+1. If you are using old Chemstation software, you need to convert the old .d format to the Masshunter .d format.\
+1.1. Download GCMS Translator from:\
+https://www.agilent.com/en/support/software-informatics/masshunter-suite/masshunter/masshunter-software/chemstation-to-masshunter-data-file-translator\
+Some supporting docs can be found here:\
+https://www.agilent.com/en/products/software-informatics/masshunter-suite/masshunter-translators\
+https://www.agilent.com/cs/library/support/Patches/SSBs/GCMS_Translator.html https://www.agilent.com/Library/usermanuals/Public/GCMS%20Translator%20Quick%20Start%20Guide-en.pdf\
+2. Convert the new .d folders to mzML using MSConvert \@ref(DataConversion)\
+3. Follow the same steps of above GC-HRMS, with parameters more suitable for LRMS data.
