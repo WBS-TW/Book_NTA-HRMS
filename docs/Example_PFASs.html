@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nontarget and suspect screening of organic compounds using HRMS - 3&nbsp; Experimental design</title>
+<title>Nontarget and suspect screening of organic compounds using HRMS - 21&nbsp; Example workflow: PFASs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter-Sample_pretreatment.html" rel="next">
-<link href="./chapter-intro.html" rel="prev">
+<link href="./Example-GC-LRMS_nontarget.html" rel="next">
+<link href="./Example_Dust.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,8 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -114,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-Experimental_design.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">**Experimental design**</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Example_PFASs.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link active">
+  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></a>
   </div>
 </li>
@@ -261,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link">
+  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></a>
   </div>
 </li>
@@ -283,35 +281,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link active" data-scroll-target="#hypothesis"><span class="header-section-number">3.1</span> Hypothesis</a></li>
-  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design"><span class="header-section-number">3.2</span> Experimental design</a></li>
-  <li><a href="#qaqc-measures" id="toc-qaqc-measures" class="nav-link" data-scroll-target="#qaqc-measures"><span class="header-section-number">3.3</span> QA/QC measures</a>
-  <ul class="collapse">
-  <li><a href="#recovery-extraction-efficieny" id="toc-recovery-extraction-efficieny" class="nav-link" data-scroll-target="#recovery-extraction-efficieny"><span class="header-section-number">3.3.1</span> Recovery (Extraction efficieny)</a></li>
-  <li><a href="#matrix-effects" id="toc-matrix-effects" class="nav-link" data-scroll-target="#matrix-effects"><span class="header-section-number">3.3.2</span> Matrix effects</a></li>
-  </ul></li>
-  <li><a href="#data-directory-structure" id="toc-data-directory-structure" class="nav-link" data-scroll-target="#data-directory-structure"><span class="header-section-number">3.4</span> Data directory structure</a></li>
-  <li><a href="#sampling-design-and-collection" id="toc-sampling-design-and-collection" class="nav-link" data-scroll-target="#sampling-design-and-collection"><span class="header-section-number">3.5</span> Sampling design and collection</a></li>
-  <li><a href="#collection-of-metadata" id="toc-collection-of-metadata" class="nav-link" data-scroll-target="#collection-of-metadata"><span class="header-section-number">3.6</span> Collection of metadata</a></li>
-  <li><a href="#chemical-analysis" id="toc-chemical-analysis" class="nav-link" data-scroll-target="#chemical-analysis"><span class="header-section-number">3.7</span> Chemical analysis</a>
-  <ul class="collapse">
-  <li><a href="#data-recording-modes" id="toc-data-recording-modes" class="nav-link" data-scroll-target="#data-recording-modes"><span class="header-section-number">3.7.1</span> Data recording modes</a></li>
-  </ul></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">3.8</span> Data analysis</a></li>
-  <li><a href="#workflow-examples" id="toc-workflow-examples" class="nav-link" data-scroll-target="#workflow-examples"><span class="header-section-number">3.9</span> Workflow examples</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ExpDesign" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></h1>
+<h1 class="title"><span id="ExamplePFAS" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></h1>
 </div>
 
 
@@ -329,164 +306,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-9ed7a95f65fa1d57e03f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9ed7a95f65fa1d57e03f">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = true, width = 4, height = 2]\nA [label = \"Hypothesis\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nB1 [label = \"Experimental design\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]\nC1 [label = \"Sampling design \\n and collection\"]\nC2 [label = \"QA/QC\"]\nC3 [label = \"Collection of \\n metadata\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nD1 [label = \"Chemical analysis\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nE1 [label = \"Data analysis\"]\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B1}\nB1 -> {C1 C2 C3}\nC1 -> {D1}\nC2 -> {C1}\nC2 -> {D1}\nC3 -> {E1}\nD1 -> {E1}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Design workFlow</p>
-</div>
-</div>
-<section id="hypothesis" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="hypothesis"><span class="header-section-number">3.1</span> Hypothesis</h2>
-</section>
-<section id="experimental-design" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="experimental-design"><span class="header-section-number">3.2</span> Experimental design</h2>
-<ul>
-<li>Compounds of interest?<br>
-</li>
-<li>Amendable to GC and/or LC?<br>
-</li>
-<li>Instrumentations available?</li>
-</ul>
-</section>
-<section id="qaqc-measures" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="qaqc-measures"><span class="header-section-number">3.3</span> QA/QC measures</h2>
-<p><br></p>
-<section id="recovery-extraction-efficieny" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="recovery-extraction-efficieny"><span class="header-section-number">3.3.1</span> Recovery (Extraction efficieny)</h3>
-<p><strong>Spiking with native before extraction to evaluate the extraction efficiency.</strong></p>
-</section>
-<section id="matrix-effects" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="matrix-effects"><span class="header-section-number">3.3.2</span> Matrix effects</h3>
-<p><span class="math display">\[
-Recovery\textrm{(%)} = \frac{C_{spiked blank} - C_{unspiked blank}}{C_{added}}
-\]</span></p>
-<p><span class="math display">\[
-Recovery\textrm{(%)} = \frac{C_{spikedsample} - C_{unspikedsample}}{C_{added}}
-\]</span></p>
-<p><strong>Spiking with and after extraction to evaluate the extraction efficiency and matrix effect.</strong></p>
-<p>https://www.future-science.com/doi/10.4155/bio-2017-0214</p>
-<p>Taken from (https://www.sciencedirect.com/science/article/pii/S0160412020318274#s0090)<br>
-Methodology for the evaluation of matrix effect<br>
-Dust samples (100 mg) were extracted and cleaned up using the method described previously, and with no standards spiked before extraction (Chen et al., 2012). The final extract containing the OPEs was reconstituted in 100 μL of methanol and then aliquoted into equal volume, A and B (50 μL each). Portion A was spiked with 50 μL of standard solution of OPE mixtures at a concentration of 50 ng/mL per analyte. Portion B was spiked only with 50 μL of methanol as reference control. Finally, the aforementioned 50 μL of OPE mixture containing 50 ng/mL standards was mixed with 50 μL methanol as external standard solutions (S). Six replicate dust samples were included in matrix effect assessment. By comparing the response differences of the analytes in the sub-samples A and B to the responses of the analytes in the external standard, a matrix effect (ME) value was calculated as:<br>
-<span class="math display">\[
-ME\textrm{(%)} = \frac{A_i - B_i}{S_i} * 100
-\]</span></p>
-<p>where Ai, Bi and Si are the chromatographic peak areas of the analyte (i) in sub-samples A and B and external standard solution (S), respectively. The analyte signals may be suppressed or enhanced by the co-eluted contents in the samples if ME (%) is lower or higher than 100%, respectively. The matrix effect results are shown in Table S2. If ME ∼0%, there is no matrix effect. If ME&gt; 0%, an ion-suppression occurs and, if ME &lt;0%, ion-enhancement occurs.</p>
-<ul>
-<li>Dilute QC extracts to investigate potential matrix effects(?).<br>
-</li>
-<li>Field blanks.<br>
-</li>
-<li>Procedural blanks.<br>
-</li>
-<li>Solvent blanks.<br>
-</li>
-<li>Procedural replicates.<br>
-</li>
-<li>Triplicate injections.<br>
-</li>
-<li>Should also inject the procedural replicates in triplicates.<br>
-</li>
-<li>Standard reference material.<br>
-</li>
-<li>Randomization.<br>
-</li>
-<li>Retention time index standard.<br>
-</li>
-<li>Volumetric internal standard added into the final extract to guard against small difference of extract volumes, as well as enable normalization of intensities/areas between samples and batches.Use e.g.&nbsp;4,4’-Dibromooctafluorobiphenyl which should not be in the samples and is stable.<br>
-</li>
-<li></li>
-</ul>
-</section>
-</section>
-<section id="data-directory-structure" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-directory-structure"><span class="header-section-number">3.4</span> Data directory structure</h2>
-<p>Before starting with chemical and data analysis, you should first structure the project folder in your computer where you store all the raw and metadata. Below is a suggestion for file directory structure for your project folder. Try to use <a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a> for folder and file names as space or other special characters can cause errors in various computer systems and software.</p>
-<pre><code>YOUR_PROJECT_NAME
-│   Project_info.xlsx
-│
-└───Chemicals_Database
-│   │   Chemicals.xlsx
-│   │   ...
-│   │
-│   
-└───Literature
-│   │   Interesting_paper1.pdf
-│   │   ..
-│
-└───Raw_files
-│   │   File_info.xlsx
-│   │   ..
-│   │   └───LC_positive
-│   │   └───LC_negative
-│   │   └───GC_orbitrap
-│
-└───Results_Data_analysis
-│   │   Hit_list.xlsx
-│   │   Quantification.xlsx
-│   │   ..
-│   │   └───Peaklist_LC_positive
-│   │   └───Peaklist_LC_negative
-│
-└───Sample_info
-│   │   Sample_info.xlsx
-│
-└───Manuscript
-│   │   Manuscript_v1.docx
-
-    
-    
-    </code></pre>
-<p>Here, the chemicals database could also be from an external folder or library. This is recommended to have a central database for all chemicals of interest such as suspect list, spectral libraries, etc.</p>
-</section>
-<section id="sampling-design-and-collection" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="sampling-design-and-collection"><span class="header-section-number">3.5</span> Sampling design and collection</h2>
-<p>xx <br></p>
-<p>What’s in a name? <br> Sample names/ID <br> Naming sample IDs might seem trivial at first but could help downstream data analysis and also to clarify your sampling design. It is important to have a uniform naming. convention and that the sample codes could also specify if a sample is a field blank, procedural blank, replicates, belong to a specific group…<br>
-- Dont start a sample ID with a number<br>
-- Avoid using space and special characters in the file name. Space can be replaced with underscore “_” instead.</p>
-</section>
-<section id="collection-of-metadata" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="collection-of-metadata"><span class="header-section-number">3.6</span> Collection of metadata</h2>
-<p>Metadata is the information about data. In this particular case, it is the relevant information about our samples and chemicals of interest.<br>
-Examples could be the location, group,</p>
-</section>
-<section id="chemical-analysis" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="chemical-analysis"><span class="header-section-number">3.7</span> Chemical analysis</h2>
-<p>Sample order is important and should be noted in the sample information sheet. This can be important in downstream data analysis, e.g.&nbsp;retention time correction can be more efficiently corrected if the sample order are correctly set.</p>
-<section id="data-recording-modes" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="data-recording-modes"><span class="header-section-number">3.7.1</span> Data recording modes</h3>
-<p>From https://doi.org/10.1093/bioinformatics/btab279: “DDA strategy acquires a survey full-scan mass spectrum to select top N most abundant precursor ions for fragmentation spectra acquisition in the next several MS2 scans. (b) DIA fragments all the available precursors for MS2 scans in large predefined m/z and RT windows. he resulting MS2 are typically multiplexed and require further spectral deconvolution.<br>
-Data-independent acquisition (DIA) systematically fragments all the available precursors for MS2 scans in large predefined m/z windows over time. Due to its large precursor ion isolation window, the resulting MS2 are typically multiplexed (several molecules captured in the same spectrum) (Bilbao et al., 2015; Doerr, 2015). The post analysis of these fragmentation spectra requires advanced spectral deconvolution methods.”</p>
-<p>A good comparison between DDA and DIA can be seen in <a href="https://doi.org/10.1021/acs.analchem.9b05135">Guo and Huan</a></p>
-</section>
-</section>
-<section id="data-analysis" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">3.8</span> Data analysis</h2>
-<p>xx <br></p>
-</section>
-<section id="workflow-examples" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="workflow-examples"><span class="header-section-number">3.9</span> Workflow examples</h2>
-<p><br></p>
-<p>Iterative identification workflow</p>
+<p>A walkthrough for PFAS analysis</p>
+<p><br><br></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-46d6e5f938e8f37ed5e1" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-46d6e5f938e8f37ed5e1">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nA [label = \"Indoor dust collected \\n among different \\n use categories\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nB1 [label = \"Collect different groups\"]\nB2 [label = \"QA/QC\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nC1 [label = \"Sample different groups\"]\nC2 [label = \"Suspect list of Cl/Br compounds\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nD1 [label = \"Chemical analysis\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nE1 [label = \"Suspect screening\"]\nE2 [label = \"Nontarget\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nF1 [label = \"Mass defect plots\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nG1 [label = \"In silico transformation product list for identified compounds\"]\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B1}\nB2 -> {C1}\nB1 -> {C1 C2}\nC1 -> {D1}\nC2 -> {E1}\nD1 -> {E1}\nE2 -> {F1}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-3e33702a8133d578cdf4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3e33702a8133d578cdf4">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nA [label = \"a\"]\n\nnode [color = blue, fillcolor = white, fixedsize = false]\nB [label = \"b\"]\n\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nC [label = \"c\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nD [label = \"d\"]\n\nE [label = \"e\"]\n\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Workflow for nontarget using XX</p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-79f4517b8b39883e4498" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-79f4517b8b39883e4498">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nL1 [label = \"Level 1\"]\nL2 [label = \"Level 2\"]\nL3 [label = \"Level 3\"]\nL4 [label = \"Level 4\"]\nL5 [label = \"Level 5\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nS1 [label = \"Mass defect plot\"]\nS2 [label = \"Molecular networking\"]\nS3 [label = \"Fragmentation prediction\"]\nS4 [label = \"Retention time prediction\"]\nS5 [label = \"HRMS library search\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nA1 [label = \"Exposure index\"]\nA2 [label = \"USdbdb\"]\nA3 [label = \"Building products database\"]\n\n      \n# edge statements\nedge [color = black]\n\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Workflow for structure elucidation and identification</p>
-</div>
-</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -724,13 +554,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction and concepts</span></span>
+      <a href="./Example_Dust.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Example workflow: indoor dust</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-Sample_pretreatment.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>Sample pretreatment for nontarget and suspect screening</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Example-GC-LRMS_nontarget.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>GC coupled with LRMS nontarget</strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Nontarget and suspect screening of organic compounds using HRMS"

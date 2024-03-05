@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nontarget and suspect screening of organic compounds using HRMS - 15&nbsp; GC-(LR)HRMS raw data preprocessing with MS-DIAL</title>
+<title>Nontarget and suspect screening of organic compounds using HRMS - 3&nbsp; Experimental design</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chapter-LC_HRMS_MSe_MSDIAL.html" rel="next">
-<link href="./chapter-HRMS_Spectral_Lib_LC.html" rel="prev">
+<link href="./chapter-Sample_pretreatment.html" rel="next">
+<link href="./chapter-intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,6 +100,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -112,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-GC_HRMS_MSDIAL.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-Experimental_design.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">**Experimental design**</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapter-Experimental_design.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></a>
   </div>
 </li>
@@ -223,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter-GC_HRMS_MSDIAL.html" class="sidebar-item-text sidebar-link active">
+  <a href="./chapter-GC_HRMS_MSDIAL.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span></a>
   </div>
 </li>
@@ -285,13 +287,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#all-steps" id="toc-all-steps" class="nav-link active" data-scroll-target="#all-steps"><span class="header-section-number">15.1</span> All steps</a></li>
-  <li><a href="#post-processing" id="toc-post-processing" class="nav-link" data-scroll-target="#post-processing"><span class="header-section-number">15.2</span> Post processing</a>
+  <li><a href="#hypothesis" id="toc-hypothesis" class="nav-link active" data-scroll-target="#hypothesis"><span class="header-section-number">3.1</span> Hypothesis</a></li>
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design"><span class="header-section-number">3.2</span> Experimental design</a></li>
+  <li><a href="#qaqc-measures" id="toc-qaqc-measures" class="nav-link" data-scroll-target="#qaqc-measures"><span class="header-section-number">3.3</span> QA/QC measures</a>
   <ul class="collapse">
-  <li><a href="#additional-search-against-nist-library-using-mspepsearch-and-ramsearch" id="toc-additional-search-against-nist-library-using-mspepsearch-and-ramsearch" class="nav-link" data-scroll-target="#additional-search-against-nist-library-using-mspepsearch-and-ramsearch"><span class="header-section-number">15.2.1</span> Additional search against NIST library using MSPepSearch and RamSearch</a></li>
+  <li><a href="#recovery-extraction-efficieny" id="toc-recovery-extraction-efficieny" class="nav-link" data-scroll-target="#recovery-extraction-efficieny"><span class="header-section-number">3.3.1</span> Recovery (Extraction efficieny)</a></li>
+  <li><a href="#matrix-effects" id="toc-matrix-effects" class="nav-link" data-scroll-target="#matrix-effects"><span class="header-section-number">3.3.2</span> Matrix effects</a></li>
   </ul></li>
-  <li><a href="#further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" id="toc-further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" class="nav-link" data-scroll-target="#further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial"><span class="header-section-number">15.3</span> Further explanation for some terminologies apart from the tutorial (https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial)</a></li>
-  <li><a href="#GCLRMS" id="toc-GCLRMS" class="nav-link" data-scroll-target="#GCLRMS"><span class="header-section-number">15.4</span> GC-LRMS</a></li>
+  <li><a href="#data-directory-structure" id="toc-data-directory-structure" class="nav-link" data-scroll-target="#data-directory-structure"><span class="header-section-number">3.4</span> Data directory structure</a></li>
+  <li><a href="#sampling-design-and-collection" id="toc-sampling-design-and-collection" class="nav-link" data-scroll-target="#sampling-design-and-collection"><span class="header-section-number">3.5</span> Sampling design and collection</a></li>
+  <li><a href="#collection-of-metadata" id="toc-collection-of-metadata" class="nav-link" data-scroll-target="#collection-of-metadata"><span class="header-section-number">3.6</span> Collection of metadata</a></li>
+  <li><a href="#chemical-analysis" id="toc-chemical-analysis" class="nav-link" data-scroll-target="#chemical-analysis"><span class="header-section-number">3.7</span> Chemical analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-recording-modes" id="toc-data-recording-modes" class="nav-link" data-scroll-target="#data-recording-modes"><span class="header-section-number">3.7.1</span> Data recording modes</a></li>
+  </ul></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">3.8</span> Data analysis</a></li>
+  <li><a href="#workflow-examples" id="toc-workflow-examples" class="nav-link" data-scroll-target="#workflow-examples"><span class="header-section-number">3.9</span> Workflow examples</a></li>
   </ul>
 </nav>
     </div>
@@ -300,7 +311,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="GCMSDIAL" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GC-(LR)HRMS raw data preprocessing with MS-DIAL</span></span></h1>
+<h1 class="title"><span id="ExpDesign" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>Experimental design</strong></span></span></h1>
 </div>
 
 
@@ -318,85 +329,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="all-steps" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="all-steps"><span class="header-section-number">15.1</span> All steps</h2>
-<p>Note (most of the steps can be used with GC-LRMS data, and will be documented here @ref(GCLRMS)</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-702c1e228a68d4dff3f7" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-702c1e228a68d4dff3f7">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = true, width = 4, height = 2]\nA [label = \"Raw mzML data\"]\nA1 [label = \"In-house \\n msp ibrary\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nB1 [label = \"MS-DIAL\"]\nB2 [label = \"RIKEN msp\" ]\nB3 [label = \"NIST msp\"]\nnode [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]\nC [label = \"MS-LIMA\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]\nD [label = \"ToppView (OpenMS)\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]\nE [label = \"Lib2Nist\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nF [label = \"NIST SearchMS\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nG [label = \"RamSearch\"]\n\n      \n      \n# edge statements\nedge [color = black]\nA -> B1 -> B2\nA -> D\n\nA1 -> E\n\nB2 -> F -> B3 -> G\nB2 -> C\nE -> F\n\n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>GC HRMS workFlow</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-202eb61df4ceeb2a454c" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-202eb61df4ceeb2a454c">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = true, width = 4, height = 2]\nA [label = \"Hypothesis\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nB1 [label = \"Experimental design\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 6, height = 2]\nC1 [label = \"Sampling design \\n and collection\"]\nC2 [label = \"QA/QC\"]\nC3 [label = \"Collection of \\n metadata\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nD1 [label = \"Chemical analysis\"]\n\nnode [color = black, fillcolor = white, fixedsize = true, width = 5, height = 2]\nE1 [label = \"Data analysis\"]\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B1}\nB1 -> {C1 C2 C3}\nC1 -> {D1}\nC2 -> {C1}\nC2 -> {D1}\nC3 -> {E1}\nD1 -> {E1}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Design workFlow</p>
 </div>
 </div>
-<p>This tutorial will guide you through the different steps to process raw data from <strong>GC orbitrap HRMS</strong> using MS-DIAL. You should familiarize yourself with the workflow on GC-HRMS spectral library in the previous section @ref(GClib) as well as install the required software specified in the section. You should also check the online tutorial provided by the developers: https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial</p>
-<p>You first need to convert the .raw files from GC orbitrap HRMS to the open .mzml format using MSConvert according to @ref(MSConvertGC).</p>
+<section id="hypothesis" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="hypothesis"><span class="header-section-number">3.1</span> Hypothesis</h2>
 </section>
-<section id="post-processing" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="post-processing"><span class="header-section-number">15.2</span> Post processing</h2>
-<section id="additional-search-against-nist-library-using-mspepsearch-and-ramsearch" class="level3" data-number="15.2.1">
-<h3 data-number="15.2.1" class="anchored" data-anchor-id="additional-search-against-nist-library-using-mspepsearch-and-ramsearch"><span class="header-section-number">15.2.1</span> Additional search against NIST library using MSPepSearch and RamSearch</h3>
-<p>You can export the aligned results as RIKEN msp from MS-DIAL and query this again a NIST library. Although the NIST library is recorded in low resoution unit mass, the large libary is also useful complement to the in-house HRMS library. There is two ways to query against the NIST and own library; using either the command line program MSPepSearch or the GUI software RamSearch (Broeckling et al, Anal. Chem. 2016, 88, 18, 9226–9234).<br>
-Follow these steps:</p>
-<ol type="1">
-<li><p>In MS-DIAL: click “Export” -&gt; “Alignment result”. Check “Representative spectra”, “Filter by the ion abundances of blank samples” and choose “Export format” to <em>msp</em> and click on “Export” button.</p></li>
-<li><p>Open the NIST MS Search program. Clear the results from previous search. Import the exported RIKEN msp to NIST MS Search. No need to wait until the search is finished (press abort after the import is finished). Then select all individual queries and export as msp. It has been found that Lib2NIST might not working properly for some RIKEN dataset and therefore the NIST MS Search protocol is more compatible with MSPePSearch and RamSearch.</p></li>
-<li><p>To use the command line MSPepSearch, please check @ref(mspepsearch). For manual library query, it is recommended to use RamSearch. First, download the software which can be found at the supplementary information of the paper by Broeckling et al (Anal. Chem. 2016, 88, 18, 9226–9234). Install the software and follow the tutorial found in the installation folder and query against for GC-MS data. RamSearch uses MSPepSearch to query the msp files against NIST libraries. An advantage of RamSearch is the GUI which allow you to compare the query spectrum with the library spectra. Furthermore, you can also sort the hits according to the various match scores, which saves a lot of time by only look at those that have high scores.</p></li>
-<li><p>You can also add own library to the NIST main folder to enable multiple library searches. To do this, follow the steps in @ref(lib2nist).</p></li>
-<li><p>In order to provide more more robust quantitative comparison, you can manually set up a quantification method in Tracefinder by choosing the suspects with high identification confidence. Make a list of the quantification ion (high abundance and at high m/z, preferably the molecular ion) and 2 qualitative ions, as well as the retention time. If available, then also choose representative ions for the RS in order to reduct the variations of intensity between different samples. The integrated peaks can be used for pseudo-quantification as well as comparative statistics of quantitative ions between samples (e.g.&nbsp;PCA, HCA,..).</p></li>
-</ol>
-</section>
-</section>
-<section id="further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="further-explanation-for-some-terminologies-apart-from-the-tutorial-httpsmtbinfo-team.github.iomtbinfo.github.ioms-dialtutorial"><span class="header-section-number">15.3</span> Further explanation for some terminologies apart from the tutorial (https://mtbinfo-team.github.io/mtbinfo.github.io/MS-DIAL/tutorial)</h2>
-<p><em>Gap fill</em>: The peak less than “minimum abundance” parameter of peak detection tab will be not detected even though there is a peak, and it can be gap-filled for the alignment process if the peak having the same RT and m/z is detected in other samples.</p>
-<p>From http://www.metabolomics-forum.com/index.php?topic=1469.0:</p>
-<p>In the alignment process, this program will make a master peak list (in a worst case) like:</p>
-<ol type="A">
-<li>RT: 1.05 min, m/z: 100.01<br>
-</li>
-<li>RT: 1.1 min, m/z: 100.015<br>
-</li>
-<li>RT: 1.2 min, m/z: 100.03.</li>
-</ol>
-<p>Then, a peak having e.g.&nbsp;RT: 1.1 min and m/z: 100.02 in a file e.g.&nbsp;(Q) will be aligned to (B) of the master list. After that, this program will recognize that the file (Q) does not have the certain peaks for (A) and (C), and then the program will perform the gap filling method to fill the values. However, for example, when users use an RT tolerance as 0.1 min and an m/z tolerance as 0.01 Da for the alignment tolerance, newly created peak for a master list’s (A) in the file (Q) should be nearly equal to what the file (Q) has for the master peak list’s (B) because the extracted ion chromatogram for the gap fill process for peak (A) should be drawn by the tolerances of RT=1.05 min +/ 0.1 min, m/z=100.01+/- 0.01. Because of these, MS-DIAL is supposed to export very similar peak height/area values for the master peak list’s (A) and (B) in the result of file (Q). Here, (B) is recognized as “detected” and (A) is recognized as “gap-filled” although the origin of peak is the same between them. You can know the peak origins (detected or gap-filled) in the ‘peak id’ matrix from the alignment result export option where the “-1” value is described when the peak value is inserted by the gap-filled process.</p>
-<p><em>Mass slice width</em>: depending on the processing settings, sometimes we observe the same compound splitting into 2-3 different features, and we think the mass slice width (in Peak detection) may be one of the parameters driving this effect (in addition to the alignment tolerance across samples).</p>
-<p>How can we properly to choose a slice width that fits our data, i.e.&nbsp;neither a too wide nor too narrow? For high-res Orbitrap a width of 0.05 Da is suggested. As an example, attached is an internal standard run on our LC Orbitrap (acquired at 140.000 resolution, profile).</p>
-<p>From my understanding of Tsugawa et al 2015 (Peak spotting) https://www.ncbi.nlm.nih.gov/pubmed/25938372 and the math presentation describing the MS-DIAL peak detection algorithm (default 0.1 Da), it seems MS-DIAL would correct the merging of BPCs across different m/z widths, somewhat similarly to XCMS? Below, from Smith et al 2006 (Peak detection) https://pubs.acs.org/doi/10.1021/ac051437y</p>
-<p>“An important detail is the relationship between spectral peak width and slice width.</p>
+<section id="experimental-design" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="experimental-design"><span class="header-section-number">3.2</span> Experimental design</h2>
 <ul>
-<li><p>if the peak width is larger than slice width: the signal from a single peak may bleed across multiple slices. Low-res MS produce peak widths greater than the XMCS default 0.1 m/z slice. The MEND peak detection algorithm uses a scoring function to assess whether a chromatographic peak is also at the maximum of a spectral peak, preemptively removing such bleed. Instead of eliminating spurious extra peaks during detection, our algorithm uses a post-processing step that descends through the peak list by intensity, eliminating any peaks in the vicinity (0.7 m/z) of higher intensity peaks.</p></li>
-<li><p>if the peak width is smaller than the slice width: high-res TOF or Fourier transform MS often exhibit such behavior. In that case, depending on the scan-to-scan precision of the instrument, the signal from an analyte may oscillate between adjacent slices over chromatographic time, making an otherwise smooth peak shape appear jagged. Based on operator knowledge of the mass spectrometer characteristics, we optionally combine the maximum signal intensity from adjacent slices into overlapping EIBPCs (i.e., 100.0/100.1, 100.1/100.2, etc.), That initial step produces both smooth and jagged chromatographic profiles, which are then used for filtration and peak detection. During the vicinity elimination postprocessing step, peaks detected from smooth profiles (integrated from the full signal) are selected over peaks detected from jagged profiles (integrated from an incomplete signal).”</p></li>
+<li>Compounds of interest?<br>
+</li>
+<li>Amendable to GC and/or LC?<br>
+</li>
+<li>Instrumentations available?</li>
 </ul>
-<p>when many duplicate peaks occurred, I recommend to do:<br>
-1. Use larger “MS1 tolerance” of data collection tab.<br>
-2. Use lager “Mass slice width” of peak detection tab.<br>
-3. Use larger “Smoothing level” of peak detection tab.<br>
-4. Use larger “Retention time tolerance” of alignment tab.<br>
-5. Use larger “MS1 tolerance” of alignment tab.</p>
-<p>More info: http://www.metabolomics-forum.com/index.php?topic=1459.msg4350#msg4350 <em>QuantMass</em>:</p>
-<ol type="1">
-<li>First of all, the chromatogram deconvolution is performed by the information of “pure” extracted ion chromatogram of several m/z values.</li>
-<li>The quant mass is determined from such m/z values producing the singlet/no-coeluted chromatographic peak.</li>
-</ol>
-<p>At least in TMS-based GC-MS based metabolomics, m/z 147 (2xTMS moiety) becomes base peak in EI-MS spectrum for many metabolite features, and therefore, such the m/z value should not be used as the quant mass even though the m/z value is the base peak’s m/z value. Of course, the quant mass values can be changed by the quant mass manager of MS-DIAL.<br>
-For the data comparison in the large scaled data set, we should keep the same quant mass value for metabolite quantification. MS-DIAL offers such an environment.</p>
-<ol type="1">
-<li>if you put “QUANTMASS:” field in your msp format file, the metabolite is always quantified by the target m/z.</li>
-<li>Go to “Quantmass browser” of “Post processing” in the msdial menu, then, you can define the m/z values for each metabolite. The first option should be used if many biological samples are sequentially analyzed for a long time.<br>
-More info: http://www.metabolomics-forum.com/index.php?topic=1412.0</li>
-</ol>
 </section>
-<section id="GCLRMS" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="GCLRMS"><span class="header-section-number">15.4</span> GC-LRMS</h2>
-<p>This is a workflow for Agilent GC-LRMS single quandrupole .d data.<br>
-1. If you are using old Chemstation software, you need to convert the old .d format to the Masshunter .d format.<br>
-1.1. Download GCMS Translator from:<br>
-https://www.agilent.com/en/support/software-informatics/masshunter-suite/masshunter/masshunter-software/chemstation-to-masshunter-data-file-translator<br>
-Some supporting docs can be found here:<br>
-https://www.agilent.com/en/products/software-informatics/masshunter-suite/masshunter-translators<br>
-https://www.agilent.com/cs/library/support/Patches/SSBs/GCMS_Translator.html https://www.agilent.com/Library/usermanuals/Public/GCMS%20Translator%20Quick%20Start%20Guide-en.pdf<br>
-2. Convert the new .d folders to mzML using MSConvert @ref(DataConversion)<br>
-3. Follow the same steps of above GC-HRMS, with parameters more suitable for LRMS data.</p>
+<section id="qaqc-measures" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="qaqc-measures"><span class="header-section-number">3.3</span> QA/QC measures</h2>
+<p><br></p>
+<section id="recovery-extraction-efficieny" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="recovery-extraction-efficieny"><span class="header-section-number">3.3.1</span> Recovery (Extraction efficieny)</h3>
+<p><strong>Spiking with native before extraction to evaluate the extraction efficiency.</strong></p>
+</section>
+<section id="matrix-effects" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="matrix-effects"><span class="header-section-number">3.3.2</span> Matrix effects</h3>
+<p><span class="math display">\[
+Recovery\textrm{(%)} = \frac{C_{spiked blank} - C_{unspiked blank}}{C_{added}}
+\]</span></p>
+<p><span class="math display">\[
+Recovery\textrm{(%)} = \frac{C_{spikedsample} - C_{unspikedsample}}{C_{added}}
+\]</span></p>
+<p><strong>Spiking with and after extraction to evaluate the extraction efficiency and matrix effect.</strong></p>
+<p>https://www.future-science.com/doi/10.4155/bio-2017-0214</p>
+<p>Taken from (https://www.sciencedirect.com/science/article/pii/S0160412020318274#s0090)<br>
+Methodology for the evaluation of matrix effect<br>
+Dust samples (100 mg) were extracted and cleaned up using the method described previously, and with no standards spiked before extraction (Chen et al., 2012). The final extract containing the OPEs was reconstituted in 100 μL of methanol and then aliquoted into equal volume, A and B (50 μL each). Portion A was spiked with 50 μL of standard solution of OPE mixtures at a concentration of 50 ng/mL per analyte. Portion B was spiked only with 50 μL of methanol as reference control. Finally, the aforementioned 50 μL of OPE mixture containing 50 ng/mL standards was mixed with 50 μL methanol as external standard solutions (S). Six replicate dust samples were included in matrix effect assessment. By comparing the response differences of the analytes in the sub-samples A and B to the responses of the analytes in the external standard, a matrix effect (ME) value was calculated as:<br>
+<span class="math display">\[
+ME\textrm{(%)} = \frac{A_i - B_i}{S_i} * 100
+\]</span></p>
+<p>where Ai, Bi and Si are the chromatographic peak areas of the analyte (i) in sub-samples A and B and external standard solution (S), respectively. The analyte signals may be suppressed or enhanced by the co-eluted contents in the samples if ME (%) is lower or higher than 100%, respectively. The matrix effect results are shown in Table S2. If ME ∼0%, there is no matrix effect. If ME&gt; 0%, an ion-suppression occurs and, if ME &lt;0%, ion-enhancement occurs.</p>
+<ul>
+<li>Dilute QC extracts to investigate potential matrix effects(?).<br>
+</li>
+<li>Field blanks.<br>
+</li>
+<li>Procedural blanks.<br>
+</li>
+<li>Solvent blanks.<br>
+</li>
+<li>Procedural replicates.<br>
+</li>
+<li>Triplicate injections.<br>
+</li>
+<li>Should also inject the procedural replicates in triplicates.<br>
+</li>
+<li>Standard reference material.<br>
+</li>
+<li>Randomization.<br>
+</li>
+<li>Retention time index standard.<br>
+</li>
+<li>Volumetric internal standard added into the final extract to guard against small difference of extract volumes, as well as enable normalization of intensities/areas between samples and batches.Use e.g.&nbsp;4,4’-Dibromooctafluorobiphenyl which should not be in the samples and is stable.<br>
+</li>
+<li></li>
+</ul>
+</section>
+</section>
+<section id="data-directory-structure" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="data-directory-structure"><span class="header-section-number">3.4</span> Data directory structure</h2>
+<p>Before starting with chemical and data analysis, you should first structure the project folder in your computer where you store all the raw and metadata. Below is a suggestion for file directory structure for your project folder. Try to use <a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a> for folder and file names as space or other special characters can cause errors in various computer systems and software.</p>
+<pre><code>YOUR_PROJECT_NAME
+│   Project_info.xlsx
+│
+└───Chemicals_Database
+│   │   Chemicals.xlsx
+│   │   ...
+│   │
+│   
+└───Literature
+│   │   Interesting_paper1.pdf
+│   │   ..
+│
+└───Raw_files
+│   │   File_info.xlsx
+│   │   ..
+│   │   └───LC_positive
+│   │   └───LC_negative
+│   │   └───GC_orbitrap
+│
+└───Results_Data_analysis
+│   │   Hit_list.xlsx
+│   │   Quantification.xlsx
+│   │   ..
+│   │   └───Peaklist_LC_positive
+│   │   └───Peaklist_LC_negative
+│
+└───Sample_info
+│   │   Sample_info.xlsx
+│
+└───Manuscript
+│   │   Manuscript_v1.docx
+
+    
+    
+    </code></pre>
+<p>Here, the chemicals database could also be from an external folder or library. This is recommended to have a central database for all chemicals of interest such as suspect list, spectral libraries, etc.</p>
+</section>
+<section id="sampling-design-and-collection" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sampling-design-and-collection"><span class="header-section-number">3.5</span> Sampling design and collection</h2>
+<p>xx <br></p>
+<p>What’s in a name? <br> Sample names/ID <br> Naming sample IDs might seem trivial at first but could help downstream data analysis and also to clarify your sampling design. It is important to have a uniform naming. convention and that the sample codes could also specify if a sample is a field blank, procedural blank, replicates, belong to a specific group…<br>
+- Dont start a sample ID with a number<br>
+- Avoid using space and special characters in the file name. Space can be replaced with underscore “_” instead.</p>
+</section>
+<section id="collection-of-metadata" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="collection-of-metadata"><span class="header-section-number">3.6</span> Collection of metadata</h2>
+<p>Metadata is the information about data. In this particular case, it is the relevant information about our samples and chemicals of interest.<br>
+Examples could be the location, group,</p>
+</section>
+<section id="chemical-analysis" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="chemical-analysis"><span class="header-section-number">3.7</span> Chemical analysis</h2>
+<p>Sample order is important and should be noted in the sample information sheet. This can be important in downstream data analysis, e.g.&nbsp;retention time correction can be more efficiently corrected if the sample order are correctly set.</p>
+<section id="data-recording-modes" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="data-recording-modes"><span class="header-section-number">3.7.1</span> Data recording modes</h3>
+<p>From https://doi.org/10.1093/bioinformatics/btab279: “DDA strategy acquires a survey full-scan mass spectrum to select top N most abundant precursor ions for fragmentation spectra acquisition in the next several MS2 scans. (b) DIA fragments all the available precursors for MS2 scans in large predefined m/z and RT windows. he resulting MS2 are typically multiplexed and require further spectral deconvolution.<br>
+Data-independent acquisition (DIA) systematically fragments all the available precursors for MS2 scans in large predefined m/z windows over time. Due to its large precursor ion isolation window, the resulting MS2 are typically multiplexed (several molecules captured in the same spectrum) (Bilbao et al., 2015; Doerr, 2015). The post analysis of these fragmentation spectra requires advanced spectral deconvolution methods.”</p>
+<p>A good comparison between DDA and DIA can be seen in <a href="https://doi.org/10.1021/acs.analchem.9b05135">Guo and Huan</a></p>
+</section>
+</section>
+<section id="data-analysis" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">3.8</span> Data analysis</h2>
+<p>xx <br></p>
+</section>
+<section id="workflow-examples" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="workflow-examples"><span class="header-section-number">3.9</span> Workflow examples</h2>
+<p><br></p>
+<p>Iterative identification workflow</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-7ae017e466881cbbc284" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-7ae017e466881cbbc284">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nA [label = \"Indoor dust collected \\n among different \\n use categories\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nB1 [label = \"Collect different groups\"]\nB2 [label = \"QA/QC\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nC1 [label = \"Sample different groups\"]\nC2 [label = \"Suspect list of Cl/Br compounds\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nD1 [label = \"Chemical analysis\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nE1 [label = \"Suspect screening\"]\nE2 [label = \"Nontarget\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nF1 [label = \"Mass defect plots\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nG1 [label = \"In silico transformation product list for identified compounds\"]\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B1}\nB2 -> {C1}\nB1 -> {C1 C2}\nC1 -> {D1}\nC2 -> {E1}\nD1 -> {E1}\nE2 -> {F1}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Workflow for nontarget using XX</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-086d336b46710b954778" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-086d336b46710b954778">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nL1 [label = \"Level 1\"]\nL2 [label = \"Level 2\"]\nL3 [label = \"Level 3\"]\nL4 [label = \"Level 4\"]\nL5 [label = \"Level 5\"]\n\nnode [color = black, fillcolor = white, fixedsize = false]\nS1 [label = \"Mass defect plot\"]\nS2 [label = \"Molecular networking\"]\nS3 [label = \"Fragmentation prediction\"]\nS4 [label = \"Retention time prediction\"]\nS5 [label = \"HRMS library search\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nA1 [label = \"Exposure index\"]\nA2 [label = \"USdbdb\"]\nA3 [label = \"Building products database\"]\n\n      \n# edge statements\nedge [color = black]\n\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Workflow for structure elucidation and identification</p>
+</div>
+</div>
 
 
 </section>
@@ -637,13 +724,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-HRMS_Spectral_Lib_LC.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">MTM HRMS Library: LC-HRMS</span></span>
+      <a href="./chapter-intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction and concepts</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-LC_HRMS_MSe_MSDIAL.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">LC-HRMS MSe raw data preprocessing with MS-DIAL</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-Sample_pretreatment.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><strong>Sample pretreatment for nontarget and suspect screening</strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

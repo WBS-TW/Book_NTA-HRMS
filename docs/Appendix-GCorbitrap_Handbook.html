@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nontarget and suspect screening of organic compounds using HRMS - 21&nbsp; Example workflow: PFASs</title>
+<title>Nontarget and suspect screening of organic compounds using HRMS - 18&nbsp; A handbook on GC Q Exactive orbitrap use</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Example-GC-LRMS_nontarget.html" rel="next">
-<link href="./Example_Dust.html" rel="prev">
+<link href="./Appendix-Reproducible_research.html" rel="next">
+<link href="./chapter-Ion_Mobility_HRMS.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -95,10 +61,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="site_libs/viz-1.8.2/viz.js"></script>
-<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.32/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -112,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Example_PFASs.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Appendix-GCorbitrap_Handbook.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -241,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix-GCorbitrap_Handbook.html" class="sidebar-item-text sidebar-link">
+  <a href="./Appendix-GCorbitrap_Handbook.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></span></a>
   </div>
 </li>
@@ -259,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Example_PFASs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></a>
   </div>
 </li>
@@ -281,14 +253,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#acquisition-parameters" id="toc-acquisition-parameters" class="nav-link active" data-scroll-target="#acquisition-parameters"><span class="header-section-number">18.1</span> Acquisition parameters</a></li>
+  <li><a href="#chemical-ionization" id="toc-chemical-ionization" class="nav-link" data-scroll-target="#chemical-ionization"><span class="header-section-number">18.2</span> Chemical ionization</a></li>
+  <li><a href="#terminologies" id="toc-terminologies" class="nav-link" data-scroll-target="#terminologies"><span class="header-section-number">18.3</span> Terminologies</a></li>
+  <li><a href="#cleaning-source" id="toc-cleaning-source" class="nav-link" data-scroll-target="#cleaning-source"><span class="header-section-number">18.4</span> Cleaning source</a></li>
+  <li><a href="#performance-mixture" id="toc-performance-mixture" class="nav-link" data-scroll-target="#performance-mixture"><span class="header-section-number">18.5</span> Performance mixture</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="ExamplePFAS" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Example workflow: PFASs</span></span></h1>
+<h1 class="title"><span id="GCOrbitrapHandbook" class="quarto-section-identifier"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">A handbook on GC Q Exactive orbitrap use</span></span></h1>
 </div>
 
 
@@ -304,19 +286,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item" id="htmlwidget-5b7d1e1d859feb0b2ba5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5b7d1e1d859feb0b2ba5">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],[7500,15000,30000,45000,60000,120000,240000],[40,28,12,10,7,3,1.5],[16,32,64,96,128,256,512],[11,20,50,86,110,240,500]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Resolution_at_mz200<\/th>\n      <th>Scan_rate_Hz<\/th>\n      <th>Transient_lenght_ms<\/th>\n      <th>Suggested_max_fill_time_ms<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Resolution_at_mz200","targets":1},{"name":"Scan_rate_Hz","targets":2},{"name":"Transient_lenght_ms","targets":3},{"name":"Suggested_max_fill_time_ms","targets":4}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>A walkthrough for PFAS analysis</p>
-<p><br><br></p>
+</div>
+<section id="acquisition-parameters" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="acquisition-parameters"><span class="header-section-number">18.1</span> Acquisition parameters</h2>
+<p>Check: Analytical performance of the various acquisition modes in Orbitrap MS and MS/MS. https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/jms.4195</p>
+<p>From: https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/rcm.8609?campaign=wolacceptedarticle Orbitrap technology is based on ion oscillation frequency measurements around a central electrode, detected on a receiver plate.26 The mass spectrum is obtained after Fourier transformation of the oscillation signal with a two-point calibration. The longer the signal acquisition time, the better is the resolution.27 During this time, ions generated in the EI source are stored in an IT, the C-TRAP. The storage of ions in the C-TRAP plays a vital role in prematurely analysing discontinuous ions produced continuously by the chromatographic separation and the ionisation source. The ions introduced into the C-TRAP lose their energy in contact with N2 at approximately 1 mTorr.26 During an acquisition in full scan mode, it is possible to set the detector with different parameters: acquisition mass range, resolution, AGC target and tune values. The tune files gather the different settings of the mass spectrometer aiming to produce the ions of the EI source, but also the different voltages applied to the lenses in the ion path from the source to the C-TRAP. It is also possible to change the value of the C-TRAP energy offset (−5 to +5 V). For this study, we used standard conditions of EI (70 eV) in order to have the ideal conditions for reproducibility of the spectra. By default, the Orbitrap system acquires data in the range m/z 50–500 at 60 000 resolution mode and 70 eV for EI. The C-TRAP tune value was set to 0 V and AGT target to 1 × 106 ions with an automatic filling limit.</p>
+<ul>
+<li>Recommended to have about 10-12 scans per peak.</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-6d3bbc5e5db032d62e96" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-6d3bbc5e5db032d62e96">{"x":{"diagram":"\ndigraph Scheme {\n      \n# graph statement\ngraph [layout = dot, overlap = false, rankdir = LR]\n\n# node statements\nnode [shape = box,\nfontname = Helvetica, fontsize = 35, style = filled]\n      \nnode [color = black, fillcolor = white, fixedsize = false]\nA [label = \"a\"]\n\nnode [color = blue, fillcolor = white, fixedsize = false]\nB [label = \"b\"]\n\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nC [label = \"c\"]\n\n\nnode [color = black, fillcolor = white, fixedsize = false]\nD [label = \"d\"]\n\nE [label = \"e\"]\n\n\n      \n      \n# edge statements\nedge [color = black]\nA -> {B}\n\n      \n      }\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Workflow for nontarget using XX</p>
+
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b749dd1e36ac79515f95" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b749dd1e36ac79515f95">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11"],["Repeller voltage (8-11 V)","Source offset","Lens 1","Lens 2","Lens 3","Electron lens voltage","Emission current (50-60 uA)","IT (&lt; 1)","Normalized target level (NL) (clean source 1E9)","Fore vacuum (&lt; 6E-2 mbar)","Ultrahigh vacuum (&lt; 9E-10 mbar)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Parameter<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Parameter","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+</section>
+<section id="chemical-ionization" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="chemical-ionization"><span class="header-section-number">18.2</span> Chemical ionization</h2>
+<p>If the instrument is in CI mode, choose the right Calibration gas and Ionization mode (“CI”), as well as the CI gas flow (typically 1-2), gas port (Port B as of 20210429, actual CI gas flow should indicate the correct port), and gas type (likely Methane, but check the cylinder). Open the CI gas flow at 2ml/min before opening anything else (before the calibration gas, filament, MS), otherwise the flow can be unstable. Afterwards the CI can be adjusted to lower flow</p>
+</section>
+<section id="terminologies" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="terminologies"><span class="header-section-number">18.3</span> Terminologies</h2>
+<p><em>Automatic Gain Control (AGC):</em> Sets the ion injection time to maintain the optimum quantity of ions for each scan. With AGC on, the scan function consists of a prescan and an analytical scan. The split lens is used to start and stop the injection of ions into the mass analyzer. It provides a high deflection voltage most of the time so that ions are deflected into a baffle except when they are to be allowed into the C-Trap. The fast switching of the ion beam ensures the precise determination of the ion injection time that is required for AGC. This is since if too many ion are in the ion cloud going in to the orbitrap, then it will oversaturate the detector.</p>
+<p><em>Chemical Ionization (CI):</em></p>
+<p><em>Nitrogen gas:</em> Nitrogen gas is used for the purging of the ion source when removing the ion volume. It is also used in the C-Trap, when the ions are accumulated and their energy is dampened using a bath gas (nitrogen).</p>
+</section>
+<section id="cleaning-source" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="cleaning-source"><span class="header-section-number">18.4</span> Cleaning source</h2>
+<p>https://www.sisweb.com/referenc/tips/msclean.htm</p>
+</section>
+<section id="performance-mixture" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="performance-mixture"><span class="header-section-number">18.5</span> Performance mixture</h2>
+<p><span style="color: red;"> QC standard mix (100 fg OFN, 10 pg HCB, 10 pg DDT and 10 pg Endrin)<br>
+In NCI, OFN (100 fg) should give you around 800 000 – 1 000 000 area counts with an optimal system. This can vary based on the tune parameters and column condition.</span></p>
+<p>Alkane mix C7-C40<br>
+Odd chain alkane mix C11-C25 to help find peaks in the C7-C40 mixture<br>
+Check if 4,4’-Dibromooctafluorobiphenyl can be used in PCI/NCI</p>
+<p>Alkane only visible in PCI so if using CI then run alkane mix in PCI even for NCI runs.<br>
+</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -554,13 +570,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Example_Dust.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Example workflow: indoor dust</span></span>
+      <a href="./chapter-Ion_Mobility_HRMS.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ion mobility HRMS</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Example-GC-LRMS_nontarget.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><strong>GC coupled with LRMS nontarget</strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Appendix-Reproducible_research.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Reproducible research using Docker containers and similar tools</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
