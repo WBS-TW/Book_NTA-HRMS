@@ -62,11 +62,70 @@ xx
 
 <br><br> \## MSConvert xx <br><br>
 
-## MsnBase and XCMS
+## mzR, MsnBase, Spectra
 
-xx <br>
+<https://rformassspectrometry.github.io/book/sec-raw.html>
 
-### XCMS
+Loading libraries
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("tidyverse")
+BiocManager::install("factoextra")
+BiocManager::install("msdata")
+BiocManager::install("mzR")
+BiocManager::install("rhdf5")
+BiocManager::install("rpx")
+BiocManager::install("MsCoreUtils")
+BiocManager::install("QFeatures")
+BiocManager::install("Spectra")
+BiocManager::install("ProtGenerics")
+BiocManager::install("PSMatch")
+BiocManager::install("pheatmap")
+BiocManager::install("limma")
+BiocManager::install("MSnID")
+BiocManager::install("RforMassSpectrometry/SpectraVis")
+
+library(Spectra)
+```
+
+Open test mzml file (Waters MSe + Ion Mobility)
+
+```{r}
+
+# This Waters MSe does not have totIonCurrent 
+# mzf <- "D:/OneDrive - Linköpings universitet/Raw_data/Dust_Florian/LC/LC_pos_mzML/QC_rep2.mzML"
+
+# Agilent qtof data contain totIonCurrent
+
+
+# Vion ion mobility converted to mzml not combined IM scans 
+mzf_all <- "D:/TEST/Vion_data/Drugstd-200ppb_1_A,3_1.mzML"
+
+# Vion combined IM scans
+mzf_combined <- "D:/TEST/Vion_data/Drugstd-200ppb_1_A,3_1-Combined.mzML"
+sp_all <- Spectra(mzf_all)
+sp_combined <- Spectra(mzf_combined)
+```
+
+Checking metainfo
+
+```{r}
+#plotting individual spectra
+plotSpectra(sp_all[550000]) #MS1
+plotSpectra(sp[2785]) #MS2
+
+
+with(spectraData(filterMsLevel(sp_all, 1)),
+     plot(rtime, ionMobilityDriftTime, type = "l"))
+abline(v = rtime(sp_all)[2784], col = "red")
+
+ms_2 <- filterPrecursorScan(sp, 2784)
+```
+
+### xcms
 
 Check: A scalable workflow to characterize the human exposome, SI-11, https://www.nature.com/articles/s41467-021-25840-9#MOESM14
 
@@ -100,4 +159,3 @@ In GC-HRMS, try 0.8 to separate and deconvolute very closely coeluting peak in G
 ## Output formats
 
 <br> - MSnExp and XCMSnExp <br> - MSP <br> - MFG <br> - CSV (for both output data or metadata) <br>
-
