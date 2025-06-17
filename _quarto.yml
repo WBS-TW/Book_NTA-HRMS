@@ -11,6 +11,7 @@ book:
     - chapter-intro.qmd
     - chapter-Experimental_design.qmd
     - chapter-Sample_pretreatment.qmd
+    - chapter-QAQC.qmd
     - chapter-MS_preprocess.qmd
     - chapter-Suspect_screening.qmd
     - chapter-Mass_defect.qmd

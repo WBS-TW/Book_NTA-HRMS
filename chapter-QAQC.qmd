@@ -1,0 +1,16 @@
+---
+Title: QA/QC
+output: html_document
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+# **Quality Assurance and Quality Control** {#QAQC}
+
+<br><br>
+
+## Matrix Effect
+  
+Matrix effects (%) = (C_Matrix-C_Blank)/C_Standard ×100%-100%
+Where CMatrix, CBlank, and CStandard represent the analyte concentrations of the matrix matched standard, matrix blank, and standard solution, respectively.

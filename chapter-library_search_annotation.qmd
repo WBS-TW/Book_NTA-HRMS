@@ -302,11 +302,11 @@ IN WINDOWS: open 'cmd', go to the folder where LIB2NIST is and type:
 COMMAND:\
 `lib2nist.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N <path to msp file> <output path> =<new name of library>`
 
-EXAMPLES:\
+EXAMPLES GC-HRMS:\
 `lib2nist64.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N D:\Projects\Suspect_lists\Spectral_databases\RECETOX_GC-EI_MS_20201028.msp D:\Program\NIST14\ =RECETOX_GC-EI_MS_20201028`
 
-EXAMPLES:\
-`lib2nist64.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:Y /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N D:\Projects\Suspect_lists\Spectral_databases\2021-05-28_MTM_HRMS_RECETOX_THERMO.msp D:\Program\NIST14\ =MTM_HRMS_RECETOX_THERMO_20210528`
+EXAMPLES LC-HRMS:\
+`lib2nist64.exe /log9 Mylib.log /OutLib /StdRounding:N /MsmsOnly:N /AccuratePeakMZ /PrecurMzDecPlaces=keep /PeakMzDecPlaces=keep /UseSubset:N D:\TEST\20250423_IFM_PLUS_MASSBANK_POS.msp D:\Program\NIST20\MSSEARCH\ =IFM_PLUS_MASSBANK_POS`
 
 ## MSPepSearch {#mspepsearch}
 
